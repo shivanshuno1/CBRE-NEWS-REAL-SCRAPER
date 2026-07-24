@@ -8,6 +8,7 @@ export default function App() {
   const [keywords, setKeywords] = useState('opens, launches');
   const [days, setDays] = useState(120);
   const [headless, setHeadless] = useState(true);
+  const [location, setLocation] = useState('India');
 
   // App lifecycle state
   const [isLoading, setIsLoading] = useState(false);
@@ -41,6 +42,7 @@ export default function App() {
     formData.append('keywords_str', keywords);
     formData.append('days', days);
     formData.append('headless', headless);
+    formData.append('location', location);
 
     try {
       const response = await fetch('http://localhost:8000/api/scrape', {
@@ -134,6 +136,21 @@ export default function App() {
                 placeholder="opens, launches, expands"
                 style={styles.input}
               />
+            </div>
+
+            <div style={styles.field}>
+              <label style={styles.label}>Geographic Location</label>
+              <input
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                disabled={isLoading}
+                placeholder="e.g. India, United States, UK"
+                style={styles.input}
+              />
+              <span style={styles.fileHint}>
+                Focuses search results to news from this country/region.
+              </span>
             </div>
 
             <div style={styles.field}>
