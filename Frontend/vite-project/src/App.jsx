@@ -1,5 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import * as XLSX from 'xlsx';
+
+const API_BASE = 'http://localhost:8000';
 
 export default function App() {
   // Config state
@@ -10,12 +12,16 @@ export default function App() {
   const [headless, setHeadless] = useState(true);
   const [location, setLocation] = useState('India');
 
-  // App lifecycle state
-  const [isLoading, setIsLoading] = useState(false);
+  // Job lifecycle state
+  const [jobId, setJobId] = useState(null);
+  const [jobStatus, setJobStatus] = useState(null);
+  const [progress, setProgress] = useState({ completed_accounts: 0, total_accounts: 0 });
   const [results, setResults] = useState([]);
   const [error, setError] = useState('');
+  const pollRef = useRef(null);
 
-  // Table UI state
+  const isLoading = jobStatus === 'running';
+
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('ALL');
 
@@ -25,6 +31,41 @@ export default function App() {
     }
   };
 
+  useEffect(() => {
+    if (!jobId) return;
+
+    const poll = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/scrape/status/${jobId}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        setJobStatus(data.status);
+        setProgress({
+          completed_accounts: data.completed_accounts,
+          total_accounts: data.total_accounts,
+        });
+        setResults(data.results || []);
+
+        if (data.status === 'error') {
+          setError(data.error || 'The scraper hit an error.');
+        }
+
+        if (data.status !== 'running' && pollRef.current) {
+          clearInterval(pollRef.current);
+          pollRef.current = null;
+        }
+      } catch (err) {
+        // ignore
+      }
+    };
+
+    poll();
+    pollRef.current = setInterval(poll, 2000);
+    return () => {
+      if (pollRef.current) clearInterval(pollRef.current);
+    };
+  }, [jobId]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!file) {
@@ -32,20 +73,21 @@ export default function App() {
       return;
     }
 
-    setIsLoading(true);
     setError('');
     setResults([]);
+    setJobId(null);
+    setJobStatus(null);
 
     const formData = new FormData();
     formData.append('file', file);
     formData.append('name_col', nameCol);
     formData.append('keywords_str', keywords);
     formData.append('days', days);
-    formData.append('headless', headless);
+    formData.append('headless', headless ? 'true' : 'false'); // ← FIXED
     formData.append('location', location);
 
     try {
-      const response = await fetch('http://localhost:8000/api/scrape', {
+      const response = await fetch(`${API_BASE}/api/scrape/start`, {
         method: 'POST',
         body: formData,
       });
@@ -56,15 +98,22 @@ export default function App() {
       }
 
       const data = await response.json();
-      setResults(data.data || []);
+      setJobId(data.job_id);
+      setJobStatus('running');
     } catch (err) {
-      setError(err.message || 'An unexpected error occurred while running the scraper.');
-    } finally {
-      setIsLoading(false);
+      setError(err.message || 'An unexpected error occurred while starting the scraper.');
     }
   };
 
-  // Filtered table data
+  const handleStop = async () => {
+    if (!jobId) return;
+    try {
+      await fetch(`${API_BASE}/api/scrape/stop/${jobId}`, { method: 'POST' });
+    } catch (err) {
+      setError('Could not reach the server to stop the job, but your last checkpoint is still saved.');
+    }
+  };
+
   const filteredResults = useMemo(() => {
     return results.filter((row) => {
       const matchesStatus = statusFilter === 'ALL' || row.Status === statusFilter;
@@ -79,7 +128,6 @@ export default function App() {
     });
   }, [results, searchQuery, statusFilter]);
 
-  // Export back to Excel directly from frontend
   const exportToExcel = () => {
     if (!results.length) return;
     const worksheet = XLSX.utils.json_to_sheet(results);
@@ -87,6 +135,13 @@ export default function App() {
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Scraper Results');
     XLSX.writeFile(workbook, 'scraped_executive_news.xlsx');
   };
+
+  const statusLabel = {
+    running: 'Running',
+    stopped: 'Stopped (checkpoint saved)',
+    completed: 'Completed',
+    error: 'Error',
+  }[jobStatus] || '';
 
   return (
     <div style={styles.container}>
@@ -98,7 +153,7 @@ export default function App() {
       </header>
 
       <div style={styles.layout}>
-        {/* Left Panel: Configuration Form */}
+        {/* Left Panel */}
         <div style={styles.card}>
           <h2 style={styles.cardTitle}>Scraper Configuration</h2>
           <form onSubmit={handleSubmit} style={styles.form}>
@@ -177,34 +232,57 @@ export default function App() {
               </label>
             </div>
 
-            <button
-              type="submit"
-              disabled={isLoading || !file}
-              style={{
+            {!isLoading && (
+              <button type="submit" disabled={!file} style={{
                 ...styles.button,
-                ...(isLoading || !file ? styles.buttonDisabled : {}),
-              }}
-            >
-              {isLoading ? 'Running Selenium Scraper...' : 'Start Extraction'}
-            </button>
+                ...(!file ? styles.buttonDisabled : {}),
+              }}>
+                Start Extraction
+              </button>
+            )}
+
+            {isLoading && (
+              <button type="button" onClick={handleStop} style={styles.stopButton}>
+                Stop & Save Checkpoint
+              </button>
+            )}
           </form>
 
           {error && <div style={styles.errorBox}>{error}</div>}
+
+          {jobId && (
+            <div style={styles.checkpointBox}>
+              <div style={{ fontWeight: 600, marginBottom: '0.4rem' }}>
+                {statusLabel} — {progress.completed_accounts}/{progress.total_accounts} accounts
+              </div>
+              <a
+                href={`${API_BASE}/api/scrape/download/${jobId}`}
+                style={styles.checkpointLink}
+              >
+                Download checkpoint file (.xlsx)
+              </a>
+              <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.3rem' }}>
+                Updates after every account finishes — safe to download any time, even mid-run.
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Right Panel: Results & Analytics */}
+        {/* Right Panel */}
         <div style={styles.mainContent}>
-          {isLoading && (
+          {isLoading && results.length === 0 && (
             <div style={styles.loadingCard}>
               <div style={styles.spinner}></div>
               <h3>Extraction in Progress</h3>
               <p style={{ color: '#666', fontSize: '0.9rem' }}>
-                Selenium is navigating Google News and analyzing article text. This can take a few minutes depending on the number of accounts.
+                Selenium is navigating Google News and analyzing article text. Results
+                will start appearing here as each account finishes. You can stop and
+                save a checkpoint at any point using the button on the left.
               </p>
             </div>
           )}
 
-          {!isLoading && results.length === 0 && !error && (
+          {!isLoading && !jobId && results.length === 0 && !error && (
             <div style={styles.emptyCard}>
               <h3>No Results Yet</h3>
               <p style={{ color: '#666' }}>
@@ -219,7 +297,8 @@ export default function App() {
                 <div>
                   <h2 style={styles.cardTitle}>Extracted Records ({filteredResults.length})</h2>
                   <p style={{ color: '#666', fontSize: '0.85rem', margin: 0 }}>
-                    Total entries returned from pipeline: {results.length}
+                    Total entries so far: {results.length}
+                    {isLoading ? ' (still running...)' : ''}
                   </p>
                 </div>
                 <button onClick={exportToExcel} style={styles.exportButton}>
@@ -227,7 +306,6 @@ export default function App() {
                 </button>
               </div>
 
-              {/* Filters */}
               <div style={styles.filterBar}>
                 <input
                   type="text"
@@ -249,7 +327,6 @@ export default function App() {
                 </select>
               </div>
 
-              {/* Data Table */}
               <div style={styles.tableWrapper}>
                 <table style={styles.table}>
                   <thead>
@@ -306,7 +383,6 @@ export default function App() {
   );
 }
 
-// Inline styles for zero-dependency setup
 const getStatusBadgeStyle = (status) => {
   const base = {
     padding: '4px 8px',
@@ -366,6 +442,28 @@ const styles = {
     marginTop: '0.5rem',
   },
   buttonDisabled: { backgroundColor: '#94a3b8', cursor: 'not-allowed' },
+  stopButton: {
+    padding: '0.75rem',
+    backgroundColor: '#dc2626',
+    color: 'white',
+    border: 'none',
+    borderRadius: '6px',
+    fontWeight: '600',
+    cursor: 'pointer',
+    marginTop: '0.5rem',
+  },
+  checkpointBox: {
+    marginTop: '1rem',
+    padding: '0.75rem',
+    backgroundColor: '#eff6ff',
+    borderRadius: '6px',
+    fontSize: '0.85rem',
+  },
+  checkpointLink: {
+    color: '#2563eb',
+    fontWeight: 600,
+    textDecoration: 'none',
+  },
   errorBox: {
     marginTop: '1rem',
     padding: '0.75rem',

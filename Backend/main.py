@@ -1,8 +1,14 @@
 import io
+import json
+import os
 import re
+import threading
+import tempfile
 import time
 import urllib.parse
+import uuid
 from dataclasses import dataclass, field
+from typing import List, Dict, Any
 
 import pandas as pd
 import requests
@@ -11,6 +17,8 @@ import trafilatura
 from bs4 import BeautifulSoup
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+import chromedriver_autoinstaller  
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -37,9 +45,96 @@ SLEEP_BETWEEN_QUERIES = 2
 SLEEP_BETWEEN_ARTICLES = 1
 MAX_ARTICLES_PER_QUERY = 3
 
-# Maps a free-text location the user types in the frontend (e.g. "India",
-# "United States", "UK") to the Google News gl (country) / hl (language)
-# codes. Falls back to a sane global default if the location isn't recognized.
+# ============================================================
+# CHECKPOINT SYSTEM
+# ============================================================
+CHECKPOINT_DIR = "checkpoints"
+os.makedirs(CHECKPOINT_DIR, exist_ok=True)
+
+JOBS: Dict[str, Dict[str, Any]] = {}
+JOBS_LOCK = threading.Lock()
+
+
+def job_dir(job_id: str) -> str:
+    d = os.path.join(CHECKPOINT_DIR, job_id)
+    os.makedirs(d, exist_ok=True)
+    return d
+
+
+# --- Atomic writers ---
+def atomic_write_json(data: dict, path: str) -> None:
+    dirname = os.path.dirname(path)
+    with tempfile.NamedTemporaryFile(mode='w', dir=dirname, delete=False, suffix='.json') as tmp:
+        json.dump(data, tmp, indent=2)
+        tmp.flush()
+        os.fsync(tmp.fileno())
+    os.replace(tmp.name, path)
+
+
+def atomic_write_excel(df: pd.DataFrame, path: str) -> None:
+    dirname = os.path.dirname(path)
+    with tempfile.NamedTemporaryFile(mode='wb', dir=dirname, delete=False, suffix='.xlsx') as tmp:
+        df.to_excel(tmp, index=False)
+        tmp.flush()
+        os.fsync(tmp.fileno())
+    os.replace(tmp.name, path)
+
+
+def save_checkpoint(job_id: str) -> None:
+    with JOBS_LOCK:
+        job = JOBS.get(job_id)
+        if not job:
+            return
+        snapshot = {
+            "job_id": job_id,
+            "status": job["status"],
+            "total_accounts": job["total_accounts"],
+            "completed_accounts": job["completed_accounts"],
+            "results": job["results"],
+            "location_suffix": job.get("location_suffix", ""),
+        }
+
+    json_path = os.path.join(job_dir(job_id), "checkpoint.json")
+    atomic_write_json(snapshot, json_path)
+
+    # Also update Excel file (atomic)
+    if snapshot["results"]:
+        df = pd.DataFrame(snapshot["results"])
+        xlsx_path = os.path.join(job_dir(job_id), "checkpoint.xlsx")
+        atomic_write_excel(df, xlsx_path)
+
+
+def load_checkpoint(job_id: str) -> dict | None:
+    json_path = os.path.join(job_dir(job_id), "checkpoint.json")
+    if os.path.exists(json_path):
+        with open(json_path, "r") as f:
+            return json.load(f)
+    return None
+
+
+def load_all_checkpoints() -> None:
+    """Load all existing checkpoint jobs into JOBS dict on server startup."""
+    for job_id in os.listdir(CHECKPOINT_DIR):
+        json_path = os.path.join(CHECKPOINT_DIR, job_id, "checkpoint.json")
+        if os.path.exists(json_path):
+            data = load_checkpoint(job_id)
+            if data:
+                with JOBS_LOCK:
+                    JOBS[job_id] = {
+                        "status": data["status"],
+                        "results": data["results"],
+                        "stop_requested": False,
+                        "total_accounts": data["total_accounts"],
+                        "completed_accounts": data["completed_accounts"],
+                        "location_suffix": data.get("location_suffix", ""),
+                        "error": None,
+                    }
+
+
+# ============================================================
+# COUNTRY & ROLE HELPERS
+# ============================================================
+
 COUNTRY_CODE_MAP = {
     "india": ("IN", "en"),
     "united states": ("US", "en"), "usa": ("US", "en"), "us": ("US", "en"),
@@ -57,11 +152,12 @@ COUNTRY_CODE_MAP = {
 }
 DEFAULT_COUNTRY = ("US", "en")
 
+
 def resolve_country_code(location: str):
     key = (location or "").strip().lower()
-    # allow things like "in India" or "in the United States" typed straight in
     key = re.sub(r"^\s*in\s+(the\s+)?", "", key)
     return COUNTRY_CODE_MAP.get(key, DEFAULT_COUNTRY)
+
 
 ROLE_PATTERNS = [
     "Chief Executive Officer", "CEO", "Managing Director", "MD",
@@ -75,8 +171,6 @@ ROLE_ALTERNATION = re.compile(
     re.IGNORECASE,
 )
 
-# Words that are capitalized in headlines/business copy but are never part of
-# a person's name. Used to reject false positives from the regex fallback.
 NON_NAME_WORDS = {
     "retail", "expansion", "growth", "global", "group", "digital", "plan",
     "launch", "bets", "partners", "india", "asia", "south", "north", "east",
@@ -84,10 +178,6 @@ NON_NAME_WORDS = {
     "read", "more", "share", "top", "stories", "breaking", "said", "told",
     "added", "noted", "according", "monday", "tuesday", "wednesday",
     "thursday", "friday", "saturday", "sunday",
-    # relative pronouns / conjunctions that should never appear inside a
-    # person's name, as a second line of defense behind the capitalization
-    # check above (covers the rare case where such a word is capitalized
-    # because it sits at a sentence boundary)
     "who", "he", "she", "they", "after", "before", "when", "while", "that",
     "which", "whom", "whose",
 }
@@ -98,16 +188,14 @@ NAME_CANDIDATE = re.compile(
 
 SENTENCE_SPLIT_REGEX = re.compile(r"(?<=[.!?])\s+")
 
-# Load the spaCy English model once at import time. This is the primary
-# name-extraction signal (see extract_names_and_roles below); it is far more
-# reliable than plain capitalization regexes because it understands sentence
-# grammar, not just letter casing.
 _NLP = spacy.load("en_core_web_sm")
+
 
 @dataclass
 class ExtractedPerson:
     name: str
     role: str
+
 
 @dataclass
 class ArticleResult:
@@ -116,34 +204,53 @@ class ArticleResult:
     query: str
     article_title: str = ""
     article_url: str = ""
-    extracted_people: list = field(default_factory=list)  # list[ExtractedPerson]
+    extracted_people: List[ExtractedPerson] = field(default_factory=list)
     status: str = "OK"
+
 
 # ============================================================
 # SCRAPER LOGIC
 # ============================================================
 
+_DRIVER_PATH = None
+_DRIVER_PATH_LOCK = threading.Lock()
+
+def get_chromedriver_path() -> str:
+    global _DRIVER_PATH
+    with _DRIVER_PATH_LOCK:
+        if _DRIVER_PATH is None:
+            _DRIVER_PATH = ChromeDriverManager().install()
+        return _DRIVER_PATH
+
+
 def build_driver(headless: bool = False) -> webdriver.Chrome:
+    print(f"🔍 Building driver with headless={headless}")
     options = Options()
     if headless:
         options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--window-size=1400,1000")
+    options.add_argument("--start-maximized")
     options.add_argument(
         "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36"
     )
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service, options=options)
+    try:
+        driver_path = get_chromedriver_path()
+        service = Service(driver_path)
+        driver = webdriver.Chrome(service=service, options=options)
+    except Exception as e:
+        print(f"❌ Failed to launch Chrome driver: {e}")
+        raise
     driver.set_page_load_timeout(PAGE_LOAD_TIMEOUT)
     return driver
-
 def build_search_url(query: str, days: int, gl: str = "US", lang: str = "en") -> str:
     full_query = f"{query} when:{days}d"
     encoded = urllib.parse.quote(full_query)
     hl = f"{lang}-{gl}"
     return SEARCH_URL_TEMPLATE.format(query=encoded, hl=hl, gl=gl, lang=lang)
+
 
 def find_article_elements(driver):
     for selector in ARTICLE_LINK_SELECTORS:
@@ -151,6 +258,7 @@ def find_article_elements(driver):
         if elements:
             return elements
     return []
+
 
 def search_google_news(driver, account: str, keyword: str, query: str, days: int, gl: str = "US", lang: str = "en") -> list:
     url = build_search_url(query, days, gl=gl, lang=lang)
@@ -164,7 +272,7 @@ def search_google_news(driver, account: str, keyword: str, query: str, days: int
         print(f"  [!] No results rendered for: {query}")
         return []
 
-    time.sleep(1.5)  # let lazy content settle
+    time.sleep(1.5)
     elements = find_article_elements(driver)
 
     account_lower = account.lower()
@@ -183,7 +291,6 @@ def search_google_news(driver, account: str, keyword: str, query: str, days: int
 
         title_lower = title.lower()
 
-        # RELEVANCE FILTER
         if account_lower not in title_lower or keyword_lower not in title_lower:
             continue
 
@@ -193,7 +300,6 @@ def search_google_news(driver, account: str, keyword: str, query: str, days: int
         if len(candidates) >= MAX_ARTICLES_PER_QUERY:
             break
 
-    # Resolve each candidate's real publisher URL
     resolved = []
     for title, google_url in candidates:
         real_url = resolve_redirect(driver, google_url)
@@ -202,12 +308,13 @@ def search_google_news(driver, account: str, keyword: str, query: str, days: int
 
     return resolved
 
+
 def resolve_redirect(driver, google_news_url: str) -> str:
     original_window = driver.current_window_handle
     driver.execute_script("window.open(arguments[0]);", google_news_url)
-    time.sleep(0.5)
-    windows = driver.window_handles
-    new_window = [w for w in windows if w != original_window][-1]
+    # Wait for the new window to appear
+    WebDriverWait(driver, 10).until(lambda d: len(d.window_handles) > 1)
+    new_window = [w for w in driver.window_handles if w != original_window][0]
     driver.switch_to.window(new_window)
 
     try:
@@ -221,6 +328,7 @@ def resolve_redirect(driver, google_news_url: str) -> str:
     driver.close()
     driver.switch_to.window(original_window)
     return final_url
+
 
 def fetch_article(url: str) -> str:
     headers = {
@@ -236,12 +344,6 @@ def fetch_article(url: str) -> str:
         print(f"  [!] Failed to fetch {url}: {e}")
         return ""
 
-    # Primary path: trafilatura isolates the actual article body and drops
-    # boilerplate - ads, video player captions, "related articles" widgets,
-    # comment sections, cookie banners, etc. This is what was previously
-    # letting junk like an unrelated ad's text ("Bets On") leak into the
-    # name extractor, since raw BeautifulSoup get_text() on the full page
-    # includes every visible string on the page, not just the article.
     extracted = trafilatura.extract(
         resp.text,
         include_comments=False,
@@ -251,9 +353,6 @@ def fetch_article(url: str) -> str:
     if extracted and len(extracted.strip()) > 200:
         return re.sub(r"\s+", " ", extracted).strip()
 
-    # Fallback: some sites (heavy JS rendering, unusual markup) confuse
-    # trafilatura's boilerplate detector. Fall back to the broader page-text
-    # sweep so we still get *something*, rather than nothing.
     soup = BeautifulSoup(resp.text, "lxml")
     for tag in soup(["script", "style", "noscript", "iframe", "header", "footer", "nav",
                        "aside", "form", "button", "figcaption"]):
@@ -269,26 +368,21 @@ def fetch_article(url: str) -> str:
     text = re.sub(r"\s+", " ", text)
     return text
 
+
 def clean_name(name: str) -> str:
     return re.sub(r"[.,]+$", "", name).strip()
 
+
 def _is_role_word(name: str) -> bool:
-    """A bare role word ('Partner', 'President'...) is never a person's name.
-    Guards against spaCy occasionally mistagging a standalone title as PERSON
-    in comma-separated title lists like 'Name, President, Partner and VP...'"""
     return name.lower().strip() in ROLE_SET_LOWER
 
+
 def _is_properly_capitalized(name: str) -> bool:
-    """Every word in a real name starts with an uppercase letter. spaCy's
-    PERSON entity boundaries occasionally swallow surrounding pronouns/verbs
-    on noisy or malformed article text (e.g. 'who recovered after he'), which
-    are lowercase mid-sentence words. NER gives us a candidate span; this is
-    the sanity check that the span actually looks like a name before we
-    trust it, applied uniformly to both extraction passes."""
     words = name.split()
     if not words:
         return False
     return all(w[0].isupper() for w in words if w)
+
 
 def _passes_common_filters(name: str, account: str) -> bool:
     if not name or _is_role_word(name):
@@ -304,17 +398,15 @@ def _passes_common_filters(name: str, account: str) -> bool:
         return False
     return True
 
+
 def _nearest_role(role_matches, char_pos: int) -> str:
     if not role_matches:
         return ""
     nearest = min(role_matches, key=lambda m: abs(m.start() - char_pos))
     return nearest.group(0)
 
-def _spacy_person_pass(account: str, sentence: str, doc, role_matches) -> list:
-    """Primary extraction path: spaCy's NER PERSON entities. This is what
-    correctly drops reporting-verb artifacts like 'said Tim Coogan' (spaCy
-    recognizes 'said' as a verb, not part of the name) and headline noise
-    like 'Bets On' (never tagged as a person)."""
+
+def _spacy_person_pass(account: str, sentence: str, doc, role_matches) -> List[ExtractedPerson]:
     out = []
     for ent in doc.ents:
         if ent.label_ != "PERSON":
@@ -326,14 +418,8 @@ def _spacy_person_pass(account: str, sentence: str, doc, role_matches) -> list:
         out.append(ExtractedPerson(name=name, role=role))
     return out
 
-def _regex_fallback_pass(account: str, sentence: str, doc, role_matches) -> list:
-    """Fallback path, used only for sentences where spaCy found no PERSON
-    entity at all (e.g. single-token Indian names like 'Rajanna' that a
-    small English NER model sometimes misses). Every candidate must satisfy
-    the common name filters AND have every token POS-tagged as a proper
-    noun (PROPN) by spaCy - this is what rejects false positives such as
-    'Retail Expansion, Partner' that a plain capitalization regex would
-    otherwise happily accept."""
+
+def _regex_fallback_pass(account: str, sentence: str, doc, role_matches) -> List[ExtractedPerson]:
     out = []
     for m in NAME_CANDIDATE.finditer(sentence):
         name = clean_name(m.group(1))
@@ -346,12 +432,10 @@ def _regex_fallback_pass(account: str, sentence: str, doc, role_matches) -> list
         out.append(ExtractedPerson(name=name, role=role))
     return out
 
-def extract_names_and_roles(account: str, article_text: str) -> list:
-    """Returns a list of ExtractedPerson(name, role) pairs found in the
-    article text, restricted to sentences that mention both the account
-    name and a known role keyword."""
+
+def extract_names_and_roles(account: str, article_text: str) -> List[ExtractedPerson]:
     account_lower = account.lower()
-    people: list = []
+    people: List[ExtractedPerson] = []
     seen_names = set()
 
     sentences = SENTENCE_SPLIT_REGEX.split(article_text)
@@ -377,127 +461,228 @@ def extract_names_and_roles(account: str, article_text: str) -> list:
     return people
 
 
+def article_result_to_rows(r: ArticleResult) -> List[Dict[str, Any]]:
+    base_dict = {
+        "Account Name": r.account_name,
+        "Growth Keyword": r.keyword,
+        "Search Query": r.query,
+        "Article Title": r.article_title,
+        "Article URL": r.article_url,
+        "Status": r.status,
+    }
+    rows = []
+    if r.extracted_people:
+        for person in r.extracted_people:
+            rows.append({**base_dict, "Extracted Name": person.name, "Roles Found": person.role})
+    else:
+        rows.append({**base_dict, "Extracted Name": "", "Roles Found": ""})
+    return rows
+
+
+# ============================================================
+# BACKGROUND JOB RUNNER
+# ============================================================
+def run_scrape_job(job_id: str, account_names: List[str], growth_keywords: List[str],
+                    days: int, headless: bool, gl: str, lang: str):
+    driver = None
+    try:
+        driver = build_driver(headless=headless)
+
+        for account in account_names:
+            # Check stop at start of account
+            with JOBS_LOCK:
+                if JOBS[job_id]["stop_requested"]:
+                    JOBS[job_id]["status"] = "stopped"
+                    break
+
+            for keyword in growth_keywords:
+                with JOBS_LOCK:
+                    if JOBS[job_id]["stop_requested"]:
+                        JOBS[job_id]["status"] = "stopped"
+                        save_checkpoint(job_id)
+                        return
+
+                query = f"{account} {keyword} in {JOBS[job_id]['location_suffix']}"
+                print(f"Searching: {query}")
+
+                try:
+                    articles = search_google_news(driver, account, keyword, query, days=days, gl=gl, lang=lang)
+                except Exception as e:
+                    print(f"  [!] Search failed: {e}")
+                    rows = article_result_to_rows(ArticleResult(
+                        account_name=account, keyword=keyword, query=query,
+                        status=f"SEARCH_FAILED: {e}"
+                    ))
+                    with JOBS_LOCK:
+                        JOBS[job_id]["results"].extend(rows)
+                    time.sleep(SLEEP_BETWEEN_QUERIES)
+                    continue
+
+                if not articles:
+                    rows = article_result_to_rows(ArticleResult(
+                        account_name=account, keyword=keyword, query=query,
+                        status="NO_RELEVANT_NEWS"
+                    ))
+                    with JOBS_LOCK:
+                        JOBS[job_id]["results"].extend(rows)
+                    time.sleep(SLEEP_BETWEEN_QUERIES)
+                    continue
+
+                for title, url in articles:
+                    with JOBS_LOCK:
+                        if JOBS[job_id]["stop_requested"]:
+                            JOBS[job_id]["status"] = "stopped"
+                            save_checkpoint(job_id)
+                            return
+
+                    text = fetch_article(url)
+                    if not text:
+                        rows = article_result_to_rows(ArticleResult(
+                            account_name=account, keyword=keyword, query=query,
+                            article_title=title, article_url=url, status="FETCH_FAILED"
+                        ))
+                        with JOBS_LOCK:
+                            JOBS[job_id]["results"].extend(rows)
+                        continue
+
+                    people = extract_names_and_roles(account, text)
+                    rows = article_result_to_rows(ArticleResult(
+                        account_name=account, keyword=keyword, query=query,
+                        article_title=title, article_url=url,
+                        extracted_people=people,
+                        status="OK" if people else "NO_NAME_FOUND"
+                    ))
+                    with JOBS_LOCK:
+                        JOBS[job_id]["results"].extend(rows)
+                    time.sleep(SLEEP_BETWEEN_ARTICLES)
+
+                save_checkpoint(job_id)
+                time.sleep(SLEEP_BETWEEN_QUERIES)
+
+            with JOBS_LOCK:
+                JOBS[job_id]["completed_accounts"] += 1
+            save_checkpoint(job_id)
+
+        with JOBS_LOCK:
+            if JOBS[job_id]["status"] != "stopped":
+                JOBS[job_id]["status"] = "completed"
+
+    except Exception as e:
+        print(f"❌ Job {job_id} failed: {e}")
+        with JOBS_LOCK:
+            JOBS[job_id]["status"] = "error"
+            JOBS[job_id]["error"] = str(e)
+    finally:
+        if driver is not None:
+            driver.quit()
+        save_checkpoint(job_id)
+
 # ============================================================
 # FASTAPI BACKEND SERVER
 # ============================================================
 
 app = FastAPI()
 
-# Allow React (Vite uses 5173 by default, older React apps use 3000)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173"], 
+    allow_origins=["http://localhost:3000", "http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-@app.post("/api/scrape")
-async def run_scraper_endpoint(
+
+@app.post("/api/scrape/start")
+async def start_scrape(
     file: UploadFile = File(...),
     name_col: str = Form("Account_name"),
     keywords_str: str = Form("opens,launches"),
     days: int = Form(120),
-    headless: bool = Form(True),
+    headless: str = Form("true"),   # ← changed to string
     location: str = Form("India"),
 ):
-    try:
-        # Read the uploaded Excel file into Pandas
-        contents = await file.read()
-        df = pd.read_excel(io.BytesIO(contents))
-        
-        if name_col not in df.columns:
-            raise HTTPException(
-                status_code=400, 
-                detail=f"Column '{name_col}' not found. Available columns: {list(df.columns)}"
-            )
-            
-        account_names = df[name_col].dropna().astype(str).tolist()
-        growth_keywords = [k.strip() for k in keywords_str.split(",") if k.strip()]
-        gl, lang = resolve_country_code(location)
-        location_suffix = location.strip() if location and location.strip() else "India"
-        
-        driver = build_driver(headless=headless)
-        all_results = []
-        
-        try:
-            for account in account_names:
-                for keyword in growth_keywords:
-                    query = f"{account} {keyword} in {location_suffix}"
-                    print(f"Searching: {query}")
-                    
-                    try:
-                        articles = search_google_news(driver, account, keyword, query, days=days, gl=gl, lang=lang)
-                    except Exception as e:
-                        print(f"  [!] Search failed: {e}")
-                        all_results.append(ArticleResult(
-                            account_name=account, keyword=keyword, query=query, 
-                            status=f"SEARCH_FAILED: {e}"
-                        ))
-                        time.sleep(SLEEP_BETWEEN_QUERIES)
-                        continue
-                        
-                    if not articles:
-                        all_results.append(ArticleResult(
-                            account_name=account, keyword=keyword, query=query, 
-                            status="NO_RELEVANT_NEWS"
-                        ))
-                        time.sleep(SLEEP_BETWEEN_QUERIES)
-                        continue
-                        
-                    for title, url in articles:
-                        text = fetch_article(url)
-                        if not text:
-                            all_results.append(ArticleResult(
-                                account_name=account, keyword=keyword, query=query, 
-                                article_title=title, article_url=url, status="FETCH_FAILED"
-                            ))
-                            continue
-                            
-                        people = extract_names_and_roles(account, text)
-                        all_results.append(ArticleResult(
-                            account_name=account, keyword=keyword, query=query,
-                            article_title=title, article_url=url,
-                            extracted_people=people,
-                            status="OK" if people else "NO_NAME_FOUND"
-                        ))
-                        time.sleep(SLEEP_BETWEEN_ARTICLES)
-                    
-                    time.sleep(SLEEP_BETWEEN_QUERIES)
-        finally:
-            driver.quit()
-            
-        # Format the scraped results into flat dictionaries for the React table.
-        # Each person gets their own row with their own correctly matched role
-        # (previously names and roles were collected into two separate lists
-        # with no pairing between them, which could mismatch a name with the
-        # wrong role when an article mentioned multiple people).
-        rows = []
-        for r in all_results:
-            base_dict = {
-                "Account Name": r.account_name,
-                "Growth Keyword": r.keyword,
-                "Search Query": r.query,
-                "Article Title": r.article_title,
-                "Article URL": r.article_url,
-                "Status": r.status,
-            }
-            if r.extracted_people:
-                for person in r.extracted_people:
-                    rows.append({
-                        **base_dict,
-                        "Extracted Name": person.name,
-                        "Roles Found": person.role,
-                    })
-            else:
-                rows.append({**base_dict, "Extracted Name": "", "Roles Found": ""})
-                
-        return {"data": rows}
-        
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    contents = await file.read()
+    df = pd.read_excel(io.BytesIO(contents))
+
+    if name_col not in df.columns:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Column '{name_col}' not found. Available columns: {list(df.columns)}"
+        )
+
+    account_names = df[name_col].dropna().astype(str).tolist()
+    growth_keywords = [k.strip() for k in keywords_str.split(",") if k.strip()]
+    gl, lang = resolve_country_code(location)
+    location_suffix = location.strip() if location and location.strip() else "India"
+
+    headless_bool = headless.lower() == "true"   # ← convert to boolean
+
+    job_id = str(uuid.uuid4())
+    with JOBS_LOCK:
+        JOBS[job_id] = {
+            "status": "running",
+            "results": [],
+            "stop_requested": False,
+            "total_accounts": len(account_names),
+            "completed_accounts": 0,
+            "location_suffix": location_suffix,
+            "error": None,
+        }
+
+    thread = threading.Thread(
+        target=run_scrape_job,
+        args=(job_id, account_names, growth_keywords, days, headless_bool, gl, lang),
+        daemon=True,
+    )
+    thread.start()
+
+    return {"job_id": job_id}
+
+
+@app.get("/api/scrape/status/{job_id}")
+async def scrape_status(job_id: str):
+    with JOBS_LOCK:
+        job = JOBS.get(job_id)
+        if not job:
+            raise HTTPException(status_code=404, detail="Unknown job_id")
+        return {
+            "status": job["status"],
+            "total_accounts": job["total_accounts"],
+            "completed_accounts": job["completed_accounts"],
+            "results": job["results"],
+            "error": job["error"],
+        }
+
+
+@app.post("/api/scrape/stop/{job_id}")
+async def stop_scrape(job_id: str):
+    with JOBS_LOCK:
+        job = JOBS.get(job_id)
+        if not job:
+            raise HTTPException(status_code=404, detail="Unknown job_id")
+        job["stop_requested"] = True
+    save_checkpoint(job_id)
+    return {"ok": True}
+
+
+@app.get("/api/scrape/download/{job_id}")
+async def download_checkpoint(job_id: str):
+    xlsx_path = os.path.join(job_dir(job_id), "checkpoint.xlsx")
+    if not os.path.exists(xlsx_path):
+        raise HTTPException(status_code=404, detail="No checkpoint saved yet for this job")
+    return FileResponse(
+        xlsx_path,
+        filename=f"scraper_checkpoint_{job_id[:8]}.xlsx",
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    )
+
+
+# ============================================================
+# STARTUP – LOAD EXISTING CHECKPOINTS
+# ============================================================
+load_all_checkpoints()
+
 
 if __name__ == "__main__":
     import uvicorn
-    # This block allows you to just run `python main.py` directly if you want
     uvicorn.run(app, host="0.0.0.0", port=8000)

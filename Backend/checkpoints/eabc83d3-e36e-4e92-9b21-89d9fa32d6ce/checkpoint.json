@@ -1,0 +1,49 @@
+{
+  "job_id": "eabc83d3-e36e-4e92-9b21-89d9fa32d6ce",
+  "status": "running",
+  "total_accounts": 2,
+  "completed_accounts": 0,
+  "results": [
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "opens",
+      "Search Query": "Microsoft opens in India",
+      "Article Title": "Microsoft opens voluntary exit option for employees, offering free healthcare, cash and other things",
+      "Article URL": "https://www.indiatoday.in/jobs/story/microsoft-opens-voluntary-exit-option-for-employees-offering-free-healthcare-cash-and-other-things-tchc-2907942-2026-05-07",
+      "Status": "OK",
+      "Extracted Name": "Amy Coleman",
+      "Roles Found": "vice president"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "opens",
+      "Search Query": "Microsoft opens in India",
+      "Article Title": "OpenAI loosens Microsoft ties, opens door to Amazon and Google Cloud",
+      "Article URL": "https://indianexpress.com/article/technology/artificial-intelligence/openai-loosens-microsoft-ties-opens-door-to-amazon-and-google-cloud-10659389/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "opens",
+      "Search Query": "Microsoft opens in India",
+      "Article Title": "Microsoft opens voluntary buyouts for thousands of US employees amid AI shift",
+      "Article URL": "https://www.firstpost.com/tech/microsoft-opens-voluntary-buyouts-for-thousands-of-us-employees-amid-ai-shift-14003882.html",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "launches",
+      "Search Query": "Microsoft launches in India",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "SEARCH_FAILED: Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.182)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff625f80d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff625f80d80+15600]\n\tchromedriver!(No symbol) [0x7ff625ad594d]\n\tchromedriver!(No symbol) [0x7ff625aac792]\n\tchromedriver!(No symbol) [0x7ff625b60536]\n\tchromedriver!(No symbol) [0x7ff625b6a6d0]\n\tchromedriver!(No symbol) [0x7ff625b22e6c]\n\tchromedriver!(No symbol) [0x7ff625b23d93]\n\tchromedriver!GetHandleVerifier [0x7ff626566431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff626560a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff626585865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff625f9dace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff625fa661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff625f8ab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff625f8ad04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff625f6d9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7fffd33be957+17]\n\tntdll!RtlUserThreadStart [0x7fffd3d2ad6c+2c]\n",
+      "Extracted Name": "",
+      "Roles Found": ""
+    }
+  ],
+  "location_suffix": "India"
+}

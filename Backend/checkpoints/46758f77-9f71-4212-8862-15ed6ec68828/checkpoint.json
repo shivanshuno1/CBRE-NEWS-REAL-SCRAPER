@@ -1,0 +1,139 @@
+{
+  "job_id": "46758f77-9f71-4212-8862-15ed6ec68828",
+  "status": "completed",
+  "total_accounts": 2,
+  "completed_accounts": 2,
+  "results": [
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "opens",
+      "Search Query": "Microsoft opens in India",
+      "Article Title": "Microsoft opens voluntary exit option for employees, offering free healthcare, cash and other things",
+      "Article URL": "https://www.indiatoday.in/jobs/story/microsoft-opens-voluntary-exit-option-for-employees-offering-free-healthcare-cash-and-other-things-tchc-2907942-2026-05-07",
+      "Status": "OK",
+      "Extracted Name": "Amy Coleman",
+      "Roles Found": "vice president"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "opens",
+      "Search Query": "Microsoft opens in India",
+      "Article Title": "OpenAI loosens Microsoft ties, opens door to Amazon and Google Cloud",
+      "Article URL": "https://indianexpress.com/article/technology/artificial-intelligence/openai-loosens-microsoft-ties-opens-door-to-amazon-and-google-cloud-10659389/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "opens",
+      "Search Query": "Microsoft opens in India",
+      "Article Title": "Microsoft opens voluntary buyouts for thousands of US employees amid AI shift",
+      "Article URL": "https://www.firstpost.com/tech/microsoft-opens-voluntary-buyouts-for-thousands-of-us-employees-amid-ai-shift-14003882.html",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "launches",
+      "Search Query": "Microsoft launches in India",
+      "Article Title": "Microsoft launches seven AI models as it broadens ambition beyond OpenAI",
+      "Article URL": "https://www.fortuneindia.com/business-news/microsoft-launches-seven-ai-models-as-it-broadens-ambition-beyond-openai/141155",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "launches",
+      "Search Query": "Microsoft launches in India",
+      "Article Title": "Microsoft launches Scout, an AI agent that works for you even when you\u2019re offline",
+      "Article URL": "https://indianexpress.com/article/technology/tech-news-technology/microsoft-launches-scout-an-ai-agent-that-works-for-you-even-when-youre-offline-10721742/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "launches",
+      "Search Query": "Microsoft launches in India",
+      "Article Title": "Microsoft launches 'Scout' AI assistant that works like executive assistant",
+      "Article URL": "https://www.business-standard.com/technology/tech-news/microsoft-launches-scout-ai-assistant-that-works-like-executive-assistant-126060300120_1.html",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "opens",
+      "Search Query": "TCS opens in India",
+      "Article Title": "TCS opens India\u2019s first Oracle AI data lab in Kolkata",
+      "Article URL": "https://timesofindia.indiatimes.com/city/kolkata/tcs-opens-indias-first-oracle-ai-data-lab-in-kolkata/articleshow/131693365.cms",
+      "Status": "OK",
+      "Extracted Name": "Arvind Mehra",
+      "Roles Found": "head"
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "opens",
+      "Search Query": "TCS opens in India",
+      "Article Title": "TCS opens India\u2019s first Oracle AI data lab in Kolkata",
+      "Article URL": "https://timesofindia.indiatimes.com/city/kolkata/tcs-opens-indias-first-oracle-ai-data-lab-in-kolkata/articleshow/131693365.cms",
+      "Status": "OK",
+      "Extracted Name": "Sudipto Ray",
+      "Roles Found": "head"
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "opens",
+      "Search Query": "TCS opens in India",
+      "Article Title": "TCS school quiz on AI opens entries for students across cities, how to apply",
+      "Article URL": "https://www.indiatoday.in/jobs/story/tcs-inquizitive-2026-opens-for-students-across-cities-with-ai-focused-school-quiz-details-how-to-apply-educ-2933335-2026-06-24",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "opens",
+      "Search Query": "TCS opens in India",
+      "Article Title": "TCS backs sovereign AI, opens talks with Indian model developers",
+      "Article URL": "https://www.thehindubusinessline.com/info-tech/tcs-backs-sovereign-ai-opens-talks-with-indian-model-developers/article71213347.ece",
+      "Status": "OK",
+      "Extracted Name": "K Krithivasan",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "launches",
+      "Search Query": "TCS launches in India",
+      "Article Title": "TCS launches India\u2019s first Oracle AI Data Platform Lab and Center of Excellence in Kolkata",
+      "Article URL": "https://www.tcs.com/who-we-are/newsroom/press-release/tcs-launches-indias-first-oracle-ai-data-platform-lab-center-of-excellence-in-kolkata",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "launches",
+      "Search Query": "TCS launches in India",
+      "Article Title": "TCS launches India's first Oracle AI Data platform lab in Kolkata",
+      "Article URL": "https://economictimes.indiatimes.com/tech/information-tech/tcs-launches-indias-first-oracle-ai-data-platform-lab-in-kolkata/articleshow/131678415.cms?from=mdr",
+      "Status": "OK",
+      "Extracted Name": "Sudipto Ray",
+      "Roles Found": "Vice President"
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "launches",
+      "Search Query": "TCS launches in India",
+      "Article Title": "TCS launches SovereignSecure Cloud\u2122 in Europe",
+      "Article URL": "https://www.tcs.com/who-we-are/newsroom/press-release/tcs-launches-sovereignsecure-cloud-europe",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    }
+  ],
+  "location_suffix": "India"
+}
