@@ -7,7 +7,7 @@ export default function App() {
   // Config state
   const [file, setFile] = useState(null);
   const [nameCol, setNameCol] = useState('Account_name');
-  const [keywords, setKeywords] = useState('opens, launches');
+  const [keywords, setKeywords] = useState(''); // ← blank by default = "use all default keywords, fully expanded"
   const [days, setDays] = useState(120);
   const [headless, setHeadless] = useState(true);
   const [location, setLocation] = useState('India');
@@ -81,7 +81,7 @@ export default function App() {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('name_col', nameCol);
-    formData.append('keywords_str', keywords);
+    formData.append('keywords_str', keywords); // ← blank string tells backend to use all defaults, fully expanded
     formData.append('days', days);
     formData.append('headless', headless ? 'true' : 'false'); // ← FIXED
     formData.append('location', location);
@@ -188,9 +188,15 @@ export default function App() {
                 value={keywords}
                 onChange={(e) => setKeywords(e.target.value)}
                 disabled={isLoading}
-                placeholder="opens, launches, expands"
+                placeholder="e.g. expand, hiring, partnership (leave blank for all)"
                 style={styles.input}
               />
+              <span style={styles.fileHint}>
+                Each keyword automatically includes related word forms — e.g. "expand" also
+                matches expands / expanding / expansion, "partnership" also matches
+                partner / collaboration / joint venture, and so on. Leave blank to search
+                using every default keyword group.
+              </span>
             </div>
 
             <div style={styles.field}>
