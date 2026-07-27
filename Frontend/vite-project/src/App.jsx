@@ -146,7 +146,7 @@ export default function App() {
   return (
     <div style={styles.container}>
       <header style={styles.header}>
-        <h1 style={styles.title}>Executive News & Growth Scraper</h1>
+        <h1 style={styles.title}><h2 style={{color:'blue'}}>Executive News & Growth Scrape</h2>r</h1>
         <p style={styles.subtitle}>
           Extract leadership changes & expansion intelligence directly from Google News.
         </p>
@@ -155,7 +155,7 @@ export default function App() {
       <div style={styles.layout}>
         {/* Left Panel */}
         <div style={styles.card}>
-          <h2 style={styles.cardTitle}>Scraper Configuration</h2>
+          <h2 style={styles.cardTitle}><h2 style={{color:'black'}}>Scraper Configuration</h2></h2>
           <form onSubmit={handleSubmit} style={styles.form}>
             <div style={styles.field}>
               <label style={styles.label}>Accounts File (.xlsx)</label>
