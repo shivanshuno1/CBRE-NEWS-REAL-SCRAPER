@@ -5,6 +5,7 @@ pandas
 openpyxl
 selenium
 webdriver-manager
+chromedriver-autoinstaller
 beautifulsoup4
 lxml
 requests
