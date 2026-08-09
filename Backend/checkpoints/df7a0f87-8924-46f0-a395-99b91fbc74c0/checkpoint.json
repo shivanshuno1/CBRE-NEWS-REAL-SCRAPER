@@ -1,0 +1,629 @@
+{
+  "job_id": "df7a0f87-8924-46f0-a395-99b91fbc74c0",
+  "status": "running",
+  "total_accounts": 2,
+  "completed_accounts": 1,
+  "results": [
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "expand",
+      "Search Query": "Microsoft (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Microsoft takes over a Texas AI data centre expansion after OpenAI backs away",
+      "Article URL": "https://www.thehindu.com/sci-tech/technology/microsoft-takes-over-a-texas-ai-data-centre-expansion-after-openai-backs-away/article70801603.ece",
+      "Status": "OK",
+      "Extracted Name": "Donald Trump",
+      "Roles Found": "President"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "expand",
+      "Search Query": "Microsoft (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Microsoft takes over a Texas AI data centre expansion after OpenAI backs away",
+      "Article URL": "https://www.thehindu.com/sci-tech/technology/microsoft-takes-over-a-texas-ai-data-centre-expansion-after-openai-backs-away/article70801603.ece",
+      "Status": "OK",
+      "Extracted Name": "OpenAI",
+      "Roles Found": "President"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "expand",
+      "Search Query": "Microsoft (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Microsoft takes over a Texas AI data centre expansion after OpenAI backs away",
+      "Article URL": "https://www.thehindu.com/sci-tech/technology/microsoft-takes-over-a-texas-ai-data-centre-expansion-after-openai-backs-away/article70801603.ece",
+      "Status": "OK",
+      "Extracted Name": "Chase Lochmiller",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "expand",
+      "Search Query": "Microsoft (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Microsoft, SAP Expand Azure Datacenter Footprint, Sovereign Cloud to India",
+      "Article URL": "https://datacenters.economictimes.indiatimes.com/news/cloud-colocation-connectivity/microsoft-sap-expand-azure-datacenter-footprint-sovereign-cloud-to-india/131086956",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "expand",
+      "Search Query": "Microsoft (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Microsoft expands Copilot Cowork with pay-as-you-go pricing, explores cheaper AI models",
+      "Article URL": "https://indianexpress.com/article/technology/tech-news-technology/microsoft-expands-copilot-cowork-with-pay-as-you-go-pricing-10744163/",
+      "Status": "OK",
+      "Extracted Name": "Charles Lamanna",
+      "Roles Found": "Vice President"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "expand",
+      "Search Query": "Microsoft (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Microsoft expands Copilot Cowork with pay-as-you-go pricing, explores cheaper AI models",
+      "Article URL": "https://indianexpress.com/article/technology/tech-news-technology/microsoft-expands-copilot-cowork-with-pay-as-you-go-pricing-10744163/",
+      "Status": "OK",
+      "Extracted Name": "Platform",
+      "Roles Found": "Vice President"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "open",
+      "Search Query": "Microsoft (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "Microsoft opens voluntary exit option for employees, offering free healthcare, cash and other things",
+      "Article URL": "https://www.indiatoday.in/jobs/story/microsoft-opens-voluntary-exit-option-for-employees-offering-free-healthcare-cash-and-other-things-tchc-2907942-2026-05-07",
+      "Status": "OK",
+      "Extracted Name": "Amy Coleman",
+      "Roles Found": "vice president"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "open",
+      "Search Query": "Microsoft (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "Microsoft (MSFT)\u2019s Largest Data Center In India Is On Track To Open By Mid-2026",
+      "Article URL": "https://finance.yahoo.com/markets/stocks/articles/microsoft-msft-largest-data-center-174550678.html",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "open",
+      "Search Query": "Microsoft (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "Schneider Electric Expands its Collaboration with Microsoft for AI-Powered, Open Software-Defined Automation Transforming Green Hydrogen",
+      "Article URL": "https://www.energetica-india.net/news/-schneider-electric-expands-its-collaboration-with-microsoft-for-ai-powered-open-software-defined-automation-transforming-green-hydrogen",
+      "Status": "OK",
+      "Extracted Name": "Schneider Electric\u2019s",
+      "Roles Found": "partner"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "open",
+      "Search Query": "Microsoft (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "Schneider Electric Expands its Collaboration with Microsoft for AI-Powered, Open Software-Defined Automation Transforming Green Hydrogen",
+      "Article URL": "https://www.energetica-india.net/news/-schneider-electric-expands-its-collaboration-with-microsoft-for-ai-powered-open-software-defined-automation-transforming-green-hydrogen",
+      "Status": "OK",
+      "Extracted Name": "Dayan Rodriguez",
+      "Roles Found": "Vice President"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "open",
+      "Search Query": "Microsoft (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "Schneider Electric Expands its Collaboration with Microsoft for AI-Powered, Open Software-Defined Automation Transforming Green Hydrogen",
+      "Article URL": "https://www.energetica-india.net/news/-schneider-electric-expands-its-collaboration-with-microsoft-for-ai-powered-open-software-defined-automation-transforming-green-hydrogen",
+      "Status": "OK",
+      "Extracted Name": "Mobility",
+      "Roles Found": "Vice President"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "launch",
+      "Search Query": "Microsoft (launch OR launches OR launching) in India",
+      "Article Title": "Microsoft launches FDE division, 'Microsoft Frontier Company', with 6,000 resident engineers; as senior e",
+      "Article URL": "https://timesofindia.indiatimes.com/technology/tech-news/microsoft-launches-fde-division-microsoft-frontier-company-with-6000-resident-engineers-as-senior-exec-judson-althoff-admits-customers-want-measurable-/articleshow/132150752.cms",
+      "Status": "OK",
+      "Extracted Name": "Judson Althoff",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "launch",
+      "Search Query": "Microsoft (launch OR launches OR launching) in India",
+      "Article Title": "Microsoft launches FDE division, 'Microsoft Frontier Company', with 6,000 resident engineers; as senior e",
+      "Article URL": "https://timesofindia.indiatimes.com/technology/tech-news/microsoft-launches-fde-division-microsoft-frontier-company-with-6000-resident-engineers-as-senior-exec-judson-althoff-admits-customers-want-measurable-/articleshow/132150752.cms",
+      "Status": "OK",
+      "Extracted Name": "Satya Nadella",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "launch",
+      "Search Query": "Microsoft (launch OR launches OR launching) in India",
+      "Article Title": "Microsoft launches seven AI models as it broadens ambition beyond OpenAI",
+      "Article URL": "https://www.fortuneindia.com/business-news/microsoft-launches-seven-ai-models-as-it-broadens-ambition-beyond-openai/141155",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "launch",
+      "Search Query": "Microsoft (launch OR launches OR launching) in India",
+      "Article Title": "The City of Raisio launches a people-first path to AI with Microsoft 365 Copilot",
+      "Article URL": "https://www.capgemini.com/in-en/news/client-stories/the-city-of-raisio-launches-a-people-first-path-to-ai-with-microsoft-365-copilot/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "unveil",
+      "Search Query": "Microsoft (unveil OR unveils OR unveiling) in India",
+      "Article Title": "Build 2026: Microsoft unveils Project Solara platform for AI agent devices",
+      "Article URL": "https://timesofindia.indiatimes.com/technology/tech-news/build-2026-microsoft-unveils-project-solara-platform-for-ai-agent-devices/articleshow/131475343.cms",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "unveil",
+      "Search Query": "Microsoft (unveil OR unveils OR unveiling) in India",
+      "Article Title": "Microsoft unveils AI upgrades, rolls out Copilot Cowork to early users",
+      "Article URL": "https://www.business-standard.com/world-news/microsoft-unveils-ai-upgrades-rolls-out-copilot-cowork-to-early-users-126033001327_1.html",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "unveil",
+      "Search Query": "Microsoft (unveil OR unveils OR unveiling) in India",
+      "Article Title": "Microsoft expected to unveil new AI models and windows enhancements at build 2026: Report",
+      "Article URL": "https://www.firstpost.com/tech/microsoft-expected-to-unveil-new-ai-models-and-windows-enhancements-at-build-2026-report-14017671.html",
+      "Status": "OK",
+      "Extracted Name": "Satya Nadella",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "unveil",
+      "Search Query": "Microsoft (unveil OR unveils OR unveiling) in India",
+      "Article Title": "Microsoft expected to unveil new AI models and windows enhancements at build 2026: Report",
+      "Article URL": "https://www.firstpost.com/tech/microsoft-expected-to-unveil-new-ai-models-and-windows-enhancements-at-build-2026-report-14017671.html",
+      "Status": "OK",
+      "Extracted Name": "Jensen Huang",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "unveil",
+      "Search Query": "Microsoft (unveil OR unveils OR unveiling) in India",
+      "Article Title": "Microsoft expected to unveil new AI models and windows enhancements at build 2026: Report",
+      "Article URL": "https://www.firstpost.com/tech/microsoft-expected-to-unveil-new-ai-models-and-windows-enhancements-at-build-2026-report-14017671.html",
+      "Status": "OK",
+      "Extracted Name": "Mustafa Suleyman",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "partnership",
+      "Search Query": "Microsoft (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "atQor Earns Microsoft Frontier Partner Status",
+      "Article URL": "https://www.aninews.in/news/business/atqor-earns-microsoft-frontier-partner-status20260723165448/",
+      "Status": "OK",
+      "Extracted Name": "Pushkaraj Kale",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "partnership",
+      "Search Query": "Microsoft (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "atQor Earns Microsoft Frontier Partner Status",
+      "Article URL": "https://www.aninews.in/news/business/atqor-earns-microsoft-frontier-partner-status20260723165448/",
+      "Status": "OK",
+      "Extracted Name": "Sanjeev Sharma",
+      "Roles Found": "Director"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "partnership",
+      "Search Query": "Microsoft (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "atQor Earns Microsoft Frontier Partner Status",
+      "Article URL": "https://www.aninews.in/news/business/atqor-earns-microsoft-frontier-partner-status20260723165448/",
+      "Status": "OK",
+      "Extracted Name": "Tech Sales",
+      "Roles Found": "Director"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "partnership",
+      "Search Query": "Microsoft (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "1M1B, Microsoft partner with MeitY startup hub to build AI-driven climate workforce",
+      "Article URL": "https://government.economictimes.indiatimes.com/news/digital-india/transforming-youth-into-climate-innovators-microsoft-and-1m1bs-ai-driven-initiative/130385652",
+      "Status": "OK",
+      "Extracted Name": "Manju Dhasmana",
+      "Roles Found": "Director"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "partnership",
+      "Search Query": "Microsoft (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "Microsoft partners with Singapore's Lightstorm to build India-Southeast Asia undersea cable",
+      "Article URL": "https://www.thehindubusinessline.com/info-tech/microsoft-partners-with-singapores-lightstorm-to-build-india-southeast-asia-undersea-cable/article71172953.ece",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "acquisition",
+      "Search Query": "Microsoft (acquisition OR acquire OR acquires OR acquiring OR merger OR merge OR merges OR merging) in India",
+      "Article Title": "LinkedIn | Overview, History, & Microsoft Acquisition | Britannica Money",
+      "Article URL": "https://www.britannica.com/money/LinkedIn",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "acquisition",
+      "Search Query": "Microsoft (acquisition OR acquire OR acquires OR acquiring OR merger OR merge OR merges OR merging) in India",
+      "Article Title": "NTT DATA to acquire WinWire as $3.5-trillion AI race intensifies; adds 1,000 Azure specialists to boost Microsoft cloud play",
+      "Article URL": "https://www.fortuneindia.com/technology/ntt-data-to-acquire-winwire-as-35-trillion-ai-race-intensifies-adds-1000-azure-specialists-to-boost-microsoft-cloud-play/138292",
+      "Status": "OK",
+      "Extracted Name": "Abhijit Dubey",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "acquisition",
+      "Search Query": "Microsoft (acquisition OR acquire OR acquires OR acquiring OR merger OR merge OR merges OR merging) in India",
+      "Article Title": "NTT DATA to acquire WinWire as $3.5-trillion AI race intensifies; adds 1,000 Azure specialists to boost Microsoft cloud play",
+      "Article URL": "https://www.fortuneindia.com/technology/ntt-data-to-acquire-winwire-as-35-trillion-ai-race-intensifies-adds-1000-azure-specialists-to-boost-microsoft-cloud-play/138292",
+      "Status": "OK",
+      "Extracted Name": "Stephen Boyle",
+      "Roles Found": "president"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "acquisition",
+      "Search Query": "Microsoft (acquisition OR acquire OR acquires OR acquiring OR merger OR merge OR merges OR merging) in India",
+      "Article Title": "Relativity Acquires Gavel to Extend its AI Platform for Legal Data Intelligence into Microsoft Word",
+      "Article URL": "https://www.prnewswire.com/in/news-releases/relativity-acquires-gavel-to-extend-its-ai-platform-for-legal-data-intelligence-into-microsoft-word-302799204.html",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "investment",
+      "Search Query": "Microsoft (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in India",
+      "Article Title": "Claude AI spending shock: Microsoft, Uber and others invest heavily as returns remain unclear",
+      "Article URL": "https://www.indiatoday.in/technology/news/story/claude-ai-uber-microsoft-rising-ai-spending-without-clear-results-2919514-2026-05-30",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "investment",
+      "Search Query": "Microsoft (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in India",
+      "Article Title": "Microsoft Invests $2.5 Bn to Launch Frontier Company to Help Businesses Deploy AI",
+      "Article URL": "https://analyticsindiamag.com/ai-news/microsoft-invests-25-bn-to-launch-frontier-company-to-help-businesses-deploy-ai",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "investment",
+      "Search Query": "Microsoft (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in India",
+      "Article Title": "Microsoft to invest $10 billion in Japan for AI, cybersecurity push",
+      "Article URL": "https://www.business-standard.com/technology/tech-news/microsoft-to-invest-10-billion-in-japan-for-ai-cybersecurity-push-126040300243_1.html",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "hiring",
+      "Search Query": "Microsoft (hiring OR hire OR hires OR recruitment OR recruits OR recruiting) in India",
+      "Article Title": "Microsoft cut 4,800 jobs after getting H-1B approvals to hire 2,273 foreign workers, report says",
+      "Article URL": "https://www.indiatoday.in/technology/news/story/microsoft-cuts-4800-jobs-after-h1b-approvals-for-2273-foreign-workers-report-2944997-2026-07-10",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "hiring",
+      "Search Query": "Microsoft (hiring OR hire OR hires OR recruitment OR recruits OR recruiting) in India",
+      "Article Title": "Top 5 IT companies' net hiring down for FY26; Meta, Microsoft also plan job cuts video",
+      "Article URL": "https://www.business-standard.com/video-gallery/market/top-5-it-companies-net-hiring-down-for-fy26-meta-microsoft-also-plan-job-cuts-video-178752.htm",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "hiring",
+      "Search Query": "Microsoft (hiring OR hire OR hires OR recruitment OR recruits OR recruiting) in India",
+      "Article Title": "AI Boom, Job Bust: Meta, Microsoft Eye 23,000 Cuts as Hiring Slows Across Tech",
+      "Article URL": "https://www.outlookbusiness.com/corporate/ai-boom-job-bust-meta-microsoft-eye-23000-cuts-as-hiring-slows-across-tech",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "growth",
+      "Search Query": "Microsoft (growth OR grow OR grows OR growing) in India",
+      "Article Title": "Microsoft VP's memoir of growing up in India makes unexpected case for what matters in the age of AI",
+      "Article URL": "https://www.geekwire.com/2026/microsoft-vps-memoir-of-growing-up-india-makes-unexpected-case-for-what-matters-in-the-age-of-ai/",
+      "Status": "OK",
+      "Extracted Name": "Greg Shaw",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "growth",
+      "Search Query": "Microsoft (growth OR grow OR grows OR growing) in India",
+      "Article Title": "Microsoft VP's memoir of growing up in India makes unexpected case for what matters in the age of AI",
+      "Article URL": "https://www.geekwire.com/2026/microsoft-vps-memoir-of-growing-up-india-makes-unexpected-case-for-what-matters-in-the-age-of-ai/",
+      "Status": "OK",
+      "Extracted Name": "Satya Nadella\u2019s",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "growth",
+      "Search Query": "Microsoft (growth OR grow OR grows OR growing) in India",
+      "Article Title": "Microsoft taps Alt Carbon in sign of India\u2019s growing role in carbon removal",
+      "Article URL": "https://techcrunch.com/2026/06/11/microsoft-taps-alt-carbon-in-sign-of-indias-growing-rile-in-carbon-removal/",
+      "Status": "OK",
+      "Extracted Name": "Alt Carbon",
+      "Roles Found": "co-founder"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "growth",
+      "Search Query": "Microsoft (growth OR grow OR grows OR growing) in India",
+      "Article Title": "Microsoft taps Alt Carbon in sign of India\u2019s growing role in carbon removal",
+      "Article URL": "https://techcrunch.com/2026/06/11/microsoft-taps-alt-carbon-in-sign-of-indias-growing-rile-in-carbon-removal/",
+      "Status": "OK",
+      "Extracted Name": "Sparsh Agarwal",
+      "Roles Found": "president"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "growth",
+      "Search Query": "Microsoft (growth OR grow OR grows OR growing) in India",
+      "Article Title": "Anthropic Ropes In Ex-Microsoft Sangeeta Bavi To Helm Startups, Growth In India",
+      "Article URL": "https://inc42.com/buzz/anthropic-ropes-in-ex-microsoft-sangeeta-bavi-to-helm-startups-growth-in-india/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "ipo",
+      "Search Query": "Microsoft (ipo OR \"initial public offering\" OR \"public listing\" OR \"goes public\") in India",
+      "Article Title": "OpenAI and Microsoft cap revenue-sharing payments at $38 billion ahead of possible IPO: Report",
+      "Article URL": "https://www.livemint.com/companies/news/openai-and-microsoft-cap-revenue-sharing-at-38-billion-as-openai-eyes-ipo-11778568265547.html",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "ipo",
+      "Search Query": "Microsoft (ipo OR \"initial public offering\" OR \"public listing\" OR \"goes public\") in India",
+      "Article Title": "OpenAI-Microsoft Deal Gets $38 Bn Revenue Cap Amid IPO Talks",
+      "Article URL": "https://www.outlookbusiness.com/corporate/openai-microsoft-deal-gets-38-bn-revenue-cap-amid-ipo-talks",
+      "Status": "OK",
+      "Extracted Name": "Satya Nadella",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "ipo",
+      "Search Query": "Microsoft (ipo OR \"initial public offering\" OR \"public listing\" OR \"goes public\") in India",
+      "Article Title": "As OpenAI and Anthropic IPOs near, Microsoft's Satya Nadella tells every company why frontier AI models a",
+      "Article URL": "https://timesofindia.indiatimes.com/technology/tech-news/as-openai-and-anthropic-ipos-near-microsofts-satya-nadella-tells-every-company-why-frontier-ai-models-arent-the-future/articleshow/131740151.cms",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "new product",
+      "Search Query": "Microsoft (\"new product\" OR \"new service\" OR innovation OR innovates OR \"product launch\") in India",
+      "Article Title": "GCCs in India have rapidly evolved into strategic engines of innovation, playing a critical role in areas such as product engineering, product design, AI development, data analytics and cybersecurity. In this episode of Lenovo and Microsoft present India Forwar",
+      "Article URL": "https://www.linkedin.com/posts/moneycontrol_indiaforward-lenovo-microsoft-activity-7464597561111101441-po8W",
+      "Status": "OK",
+      "Extracted Name": "Krishnakumar Thirumalai",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "new product",
+      "Search Query": "Microsoft (\"new product\" OR \"new service\" OR innovation OR innovates OR \"product launch\") in India",
+      "Article Title": "GCCs in India have rapidly evolved into strategic engines of innovation, playing a critical role in areas such as product engineering, product design, AI development, data analytics and cybersecurity. In this episode of Lenovo and Microsoft present India Forwar",
+      "Article URL": "https://www.linkedin.com/posts/moneycontrol_indiaforward-lenovo-microsoft-activity-7464597561111101441-po8W",
+      "Status": "OK",
+      "Extracted Name": "Sebi",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "new product",
+      "Search Query": "Microsoft (\"new product\" OR \"new service\" OR innovation OR innovates OR \"product launch\") in India",
+      "Article Title": "GCCs in India have rapidly evolved into strategic engines of innovation, playing a critical role in areas such as product engineering, product design, AI development, data analytics and cybersecurity. In this episode of Lenovo and Microsoft present India Forwar",
+      "Article URL": "https://www.linkedin.com/posts/moneycontrol_indiaforward-lenovo-microsoft-activity-7464597561111101441-po8W",
+      "Status": "OK",
+      "Extracted Name": "Odyssey",
+      "Roles Found": "CEO"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "new product",
+      "Search Query": "Microsoft (\"new product\" OR \"new service\" OR innovation OR innovates OR \"product launch\") in India",
+      "Article Title": "Microsoft India and FITT, IIT Delhi Unveil UNNATI AI 2.0 to Accelerate India\u2019s AI Innovation Ecosystem",
+      "Article URL": "https://theprint.in/ani-press-releases/microsoft-india-and-fitt-iit-delhi-unveil-unnati-ai-2-0-to-accelerate-indias-ai-innovation-ecosystem/2992063/",
+      "Status": "OK",
+      "Extracted Name": "Rajiv Kumar",
+      "Roles Found": "Managing Director"
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "new product",
+      "Search Query": "Microsoft (\"new product\" OR \"new service\" OR innovation OR innovates OR \"product launch\") in India",
+      "Article Title": "Microsoft says regulatory oversight of AI essential, but not at the cost of innovation",
+      "Article URL": "https://www.livemint.com/ai/microsoft-sarah-bird-artificial-intelligence-ai-regulation-india-ai-policy-donald-trump-executive-order-responsible-ai-11780884890308.html",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "digital transformation",
+      "Search Query": "Microsoft (\"digital transformation\" OR \"technology launch\" OR \"tech upgrade\" OR digitization) in India",
+      "Article Title": "Stellantis Accelerates AI-led Strategy and Digital Transformation Through Strategic Collaboration with Microsoft to Enhance Customer Experiences",
+      "Article URL": "https://www.media.stellantis.com/nl-nl/corporate/press/stellantis-accelerates-ai-led-strategy-and-digital-transformation-through-strategic-collaboration-with-microsoft-to-enhance-customer-experiences",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "digital transformation",
+      "Search Query": "Microsoft (\"digital transformation\" OR \"technology launch\" OR \"tech upgrade\" OR digitization) in India",
+      "Article Title": "LTIMindtree and Microsoft Partner to Supercharge AI Innovation and Digital Transformation for Global Enterprises",
+      "Article URL": "https://www.hpcwire.com/bigdatawire/this-just-in/ltimindtree-and-microsoft-partner-to-supercharge-ai-innovation-and-digital-transformation-for-global-enterprises/",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "digital transformation",
+      "Search Query": "Microsoft (\"digital transformation\" OR \"technology launch\" OR \"tech upgrade\" OR digitization) in India",
+      "Article Title": "European companies embrace integrated digital transformation through Microsoft\u2019s ecosystem",
+      "Article URL": "https://www.theportugalnews.com/news/2026-07-20/european-companies-embrace-integrated-digital-transformation-through-microsofts-ecosystem/1057894",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Microsoft",
+      "Growth Keyword": "new facility",
+      "Search Query": "Microsoft (\"new facility\" OR \"new plant\" OR \"new store\" OR \"new branch\" OR \"new office\" OR \"new outlet\") in India",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "expand",
+      "Search Query": "TCS (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "TCS signals AI-led hiring shift as Chandrasekaran backs AI agent expansion push",
+      "Article URL": "https://www.telegraphindia.com/business/tcs-plans-ai-agents-expansion-as-tata-group-signals-major-hiring-model-shift-prnt/cid/2164796",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "expand",
+      "Search Query": "TCS (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "TCS Secures Land in Anakapalli, Pune for AI Data Centre Expansion",
+      "Article URL": "https://datacenters.economictimes.indiatimes.com/news/investments-deals/tcs-secures-land-in-anakapalli-pune-for-ai-data-centre-expansion/132549828",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "expand",
+      "Search Query": "TCS (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Kolkata Gets India's First Oracle AI Data Platform Lab As TCS Expands AI Push",
+      "Article URL": "https://swarajyamag.com/news-brief/kolkata-gets-indias-first-oracle-ai-data-platform-lab-as-tcs-expands-ai-push",
+      "Status": "OK",
+      "Extracted Name": "Sudipto Ray",
+      "Roles Found": "Vice President"
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "open",
+      "Search Query": "TCS (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "TCS and Opendoor fuel worries over AI impacting India's tech jobs",
+      "Article URL": "https://asia.nikkei.com/business/technology/artificial-intelligence/tcs-and-opendoor-fuel-worries-over-ai-impacting-india-s-tech-jobs",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "open",
+      "Search Query": "TCS (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "TCS opens India\u2019s first Oracle AI data lab in Kolkata",
+      "Article URL": "https://timesofindia.indiatimes.com/city/kolkata/tcs-opens-indias-first-oracle-ai-data-lab-in-kolkata/articleshow/131693365.cms",
+      "Status": "OK",
+      "Extracted Name": "Arvind Mehra",
+      "Roles Found": "head"
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "open",
+      "Search Query": "TCS (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "TCS opens India\u2019s first Oracle AI data lab in Kolkata",
+      "Article URL": "https://timesofindia.indiatimes.com/city/kolkata/tcs-opens-indias-first-oracle-ai-data-lab-in-kolkata/articleshow/131693365.cms",
+      "Status": "OK",
+      "Extracted Name": "Sudipto Ray",
+      "Roles Found": "head"
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "open",
+      "Search Query": "TCS (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "TCS opens industrial AI lab in Bengaluru in partnership with Nvidia",
+      "Article URL": "https://finance.yahoo.com/technology/ai/articles/tcs-opens-industrial-ai-lab-110314597.html",
+      "Status": "OK",
+      "Extracted Name": "Sreenivasa Chakravarti",
+      "Roles Found": "vice president"
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "launch",
+      "Search Query": "TCS (launch OR launches OR launching) in India",
+      "Article Title": "TCS launches India\u2019s first Oracle AI Data Platform Lab and Center of Excellence in Kolkata",
+      "Article URL": "https://www.tcs.com/who-we-are/newsroom/press-release/tcs-launches-indias-first-oracle-ai-data-platform-lab-center-of-excellence-in-kolkata",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "launch",
+      "Search Query": "TCS (launch OR launches OR launching) in India",
+      "Article Title": "TCS and Google Cloud launch Gemini Experience Center in Kolkata",
+      "Article URL": "https://www.tcs.com/who-we-are/newsroom/press-release/tcs-google-cloud-launch-gemini-experience-center-kolkata",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "TCS",
+      "Growth Keyword": "launch",
+      "Search Query": "TCS (launch OR launches OR launching) in India",
+      "Article Title": "TCS launches India's first Oracle AI Data platform lab in Kolkata",
+      "Article URL": "https://economictimes.indiatimes.com/tech/information-tech/tcs-launches-indias-first-oracle-ai-data-platform-lab-in-kolkata/articleshow/131678415.cms?from=mdr",
+      "Status": "OK",
+      "Extracted Name": "Sudipto Ray",
+      "Roles Found": "Vice President"
+    }
+  ],
+  "location_suffix": "India"
+}

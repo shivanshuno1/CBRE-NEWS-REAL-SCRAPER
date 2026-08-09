@@ -8,7 +8,7 @@ import time
 import urllib.parse
 import uuid
 from dataclasses import dataclass, field
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
 
 import pandas as pd
 import requests
@@ -44,6 +44,82 @@ REQUEST_TIMEOUT = 20
 SLEEP_BETWEEN_QUERIES = 2
 SLEEP_BETWEEN_ARTICLES = 1
 MAX_ARTICLES_PER_QUERY = 3
+
+# ============================================================
+# KEYWORD VARIANT MAP
+# ============================================================
+# Each canonical keyword expands to every word-form that should count as a match.
+# e.g. picking/typing "expand" also matches "expands", "expanding", "expansion" in
+# both the Google News search query and the headline-matching filter.
+KEYWORD_VARIANTS: Dict[str, List[str]] = {
+    "expand": ["expand", "expands", "expanding", "expansion"],
+    "open": ["open", "opens", "opening", "inaugurate", "inaugurates", "inauguration"],
+    "launch": ["launch", "launches", "launching"],
+    "unveil": ["unveil", "unveils", "unveiling"],
+    "partnership": [
+        "partnership", "partner", "partners", "partnering",
+        "collaborate", "collaborates", "collaboration", "joint venture",
+    ],
+    "acquisition": [
+        "acquisition", "acquire", "acquires", "acquiring",
+        "merger", "merge", "merges", "merging",
+    ],
+    "investment": [
+        "investment", "invest", "invests", "investing",
+        "funding", "funds", "capital raise", "raises funding",
+    ],
+    "hiring": ["hiring", "hire", "hires", "recruitment", "recruits", "recruiting"],
+    "growth": ["growth", "grow", "grows", "growing"],
+    "ipo": ["ipo", "initial public offering", "public listing", "goes public"],
+    "new product": [
+        "new product", "new service", "innovation", "innovates", "product launch",
+    ],
+    "digital transformation": [
+        "digital transformation", "technology launch", "tech upgrade", "digitization",
+    ],
+    "new facility": [
+        "new facility", "new plant", "new store", "new branch", "new office", "new outlet",
+    ],
+}
+
+# ← Used whenever the user submits no keywords at all (blank field): search every
+# canonical keyword above, each with its full set of variants.
+DEFAULT_GROWTH_KEYWORDS = list(KEYWORD_VARIANTS.keys())
+
+# Reverse lookup: any variant string (lowercased) -> its canonical keyword,
+# so free-typed user input like "expands" or "partnering" still resolves to
+# the full variant group instead of being treated as a single literal word.
+_VARIANT_TO_CANONICAL: Dict[str, str] = {}
+for _canonical, _variants in KEYWORD_VARIANTS.items():
+    _VARIANT_TO_CANONICAL[_canonical.lower()] = _canonical
+    for _v in _variants:
+        _VARIANT_TO_CANONICAL[_v.lower()] = _canonical
+
+
+def expand_keyword(raw_keyword: str) -> Tuple[str, List[str]]:
+    """
+    Given a single keyword (typed by the user or pulled from DEFAULT_GROWTH_KEYWORDS),
+    return (display_label, [all word-form variants to search/match]).
+    If the keyword isn't recognized, it's treated as its own single-item variant list
+    so custom/unlisted keywords still work exactly as typed.
+    """
+    key = raw_keyword.strip().lower()
+    canonical = _VARIANT_TO_CANONICAL.get(key)
+    if canonical:
+        return canonical, KEYWORD_VARIANTS[canonical]
+    return raw_keyword.strip(), [raw_keyword.strip()]
+
+
+def build_growth_keyword_groups(keywords_str: str) -> List[Tuple[str, List[str]]]:
+    """
+    Parses the comma-separated keywords_str form field into a list of
+    (display_label, variants) tuples. Blank input -> full default keyword set.
+    """
+    raw_keywords = [k.strip() for k in keywords_str.split(",") if k.strip()]
+    if not raw_keywords:
+        raw_keywords = DEFAULT_GROWTH_KEYWORDS
+    return [expand_keyword(k) for k in raw_keywords]
+
 
 # ============================================================
 # CHECKPOINT SYSTEM
@@ -245,11 +321,31 @@ def build_driver(headless: bool = False) -> webdriver.Chrome:
         raise
     driver.set_page_load_timeout(PAGE_LOAD_TIMEOUT)
     return driver
+
+
 def build_search_url(query: str, days: int, gl: str = "US", lang: str = "en") -> str:
     full_query = f"{query} when:{days}d"
     encoded = urllib.parse.quote(full_query)
     hl = f"{lang}-{gl}"
     return SEARCH_URL_TEMPLATE.format(query=encoded, hl=hl, gl=gl, lang=lang)
+
+
+def build_variant_query(account: str, variants: List[str], location_suffix: str) -> str:
+    """
+    Builds a Google-News-friendly query that ORs together every variant of a
+    keyword, e.g.: Zara (expand OR expands OR expanding OR expansion) in India
+    Multi-word variants are quoted so they're matched as phrases.
+    """
+    variant_terms = []
+    for v in variants:
+        v = v.strip()
+        if not v:
+            continue
+        variant_terms.append(f'"{v}"' if " " in v else v)
+    variant_clause = " OR ".join(variant_terms) if variant_terms else ""
+    if variant_clause:
+        return f"{account} ({variant_clause}) in {location_suffix}"
+    return f"{account} in {location_suffix}"
 
 
 def find_article_elements(driver):
@@ -260,7 +356,8 @@ def find_article_elements(driver):
     return []
 
 
-def search_google_news(driver, account: str, keyword: str, query: str, days: int, gl: str = "US", lang: str = "en") -> list:
+def search_google_news(driver, account: str, variants: List[str], query: str, days: int,
+                        gl: str = "US", lang: str = "en") -> list:
     url = build_search_url(query, days, gl=gl, lang=lang)
     driver.get(url)
 
@@ -276,7 +373,7 @@ def search_google_news(driver, account: str, keyword: str, query: str, days: int
     elements = find_article_elements(driver)
 
     account_lower = account.lower()
-    keyword_lower = keyword.lower()
+    variants_lower = [v.lower() for v in variants if v.strip()]
     candidates = []
 
     for el in elements:
@@ -291,7 +388,10 @@ def search_google_news(driver, account: str, keyword: str, query: str, days: int
 
         title_lower = title.lower()
 
-        if account_lower not in title_lower or keyword_lower not in title_lower:
+        if account_lower not in title_lower:
+            continue
+        # ← matches if ANY variant of the keyword (expand, expands, expanding, expansion, ...) appears
+        if not any(v in title_lower for v in variants_lower):
             continue
 
         absolute = urllib.parse.urljoin("https://news.google.com", href)
@@ -482,7 +582,8 @@ def article_result_to_rows(r: ArticleResult) -> List[Dict[str, Any]]:
 # ============================================================
 # BACKGROUND JOB RUNNER
 # ============================================================
-def run_scrape_job(job_id: str, account_names: List[str], growth_keywords: List[str],
+def run_scrape_job(job_id: str, account_names: List[str],
+                    growth_keyword_groups: List[Tuple[str, List[str]]],
                     days: int, headless: bool, gl: str, lang: str):
     driver = None
     try:
@@ -495,22 +596,25 @@ def run_scrape_job(job_id: str, account_names: List[str], growth_keywords: List[
                     JOBS[job_id]["status"] = "stopped"
                     break
 
-            for keyword in growth_keywords:
+            for keyword_label, variants in growth_keyword_groups:
                 with JOBS_LOCK:
                     if JOBS[job_id]["stop_requested"]:
                         JOBS[job_id]["status"] = "stopped"
                         save_checkpoint(job_id)
                         return
 
-                query = f"{account} {keyword} in {JOBS[job_id]['location_suffix']}"
+                location_suffix = JOBS[job_id]['location_suffix']
+                query = build_variant_query(account, variants, location_suffix)
                 print(f"Searching: {query}")
 
                 try:
-                    articles = search_google_news(driver, account, keyword, query, days=days, gl=gl, lang=lang)
+                    articles = search_google_news(
+                        driver, account, variants, query, days=days, gl=gl, lang=lang
+                    )
                 except Exception as e:
                     print(f"  [!] Search failed: {e}")
                     rows = article_result_to_rows(ArticleResult(
-                        account_name=account, keyword=keyword, query=query,
+                        account_name=account, keyword=keyword_label, query=query,
                         status=f"SEARCH_FAILED: {e}"
                     ))
                     with JOBS_LOCK:
@@ -520,7 +624,7 @@ def run_scrape_job(job_id: str, account_names: List[str], growth_keywords: List[
 
                 if not articles:
                     rows = article_result_to_rows(ArticleResult(
-                        account_name=account, keyword=keyword, query=query,
+                        account_name=account, keyword=keyword_label, query=query,
                         status="NO_RELEVANT_NEWS"
                     ))
                     with JOBS_LOCK:
@@ -538,7 +642,7 @@ def run_scrape_job(job_id: str, account_names: List[str], growth_keywords: List[
                     text = fetch_article(url)
                     if not text:
                         rows = article_result_to_rows(ArticleResult(
-                            account_name=account, keyword=keyword, query=query,
+                            account_name=account, keyword=keyword_label, query=query,
                             article_title=title, article_url=url, status="FETCH_FAILED"
                         ))
                         with JOBS_LOCK:
@@ -547,7 +651,7 @@ def run_scrape_job(job_id: str, account_names: List[str], growth_keywords: List[
 
                     people = extract_names_and_roles(account, text)
                     rows = article_result_to_rows(ArticleResult(
-                        account_name=account, keyword=keyword, query=query,
+                        account_name=account, keyword=keyword_label, query=query,
                         article_title=title, article_url=url,
                         extracted_people=people,
                         status="OK" if people else "NO_NAME_FOUND"
@@ -596,7 +700,7 @@ app.add_middleware(
 async def start_scrape(
     file: UploadFile = File(...),
     name_col: str = Form("Account_name"),
-    keywords_str: str = Form("opens,launches"),
+    keywords_str: str = Form(""),   # ← blank means "use all default keywords, fully expanded"
     days: int = Form(120),
     headless: str = Form("true"),   # ← changed to string
     location: str = Form("India"),
@@ -611,7 +715,18 @@ async def start_scrape(
         )
 
     account_names = df[name_col].dropna().astype(str).tolist()
-    growth_keywords = [k.strip() for k in keywords_str.split(",") if k.strip()]
+
+    # ← NEW: blank input -> full default set; every keyword (typed or default) is
+    # expanded into its full group of word-form variants for search + matching.
+    growth_keyword_groups = build_growth_keyword_groups(keywords_str)
+
+    # ← DEBUG: confirms exactly what was received and what it resolved to.
+    # If you see only "opens"/"launches"/"expands" here, you are NOT running
+    # this version of main.py — restart the server after replacing the file.
+    print(f"🔑 keywords_str received: '{keywords_str}'")
+    print(f"🔑 resolved keyword groups: "
+          f"{[(label, variants) for label, variants in growth_keyword_groups]}")
+
     gl, lang = resolve_country_code(location)
     location_suffix = location.strip() if location and location.strip() else "India"
 
@@ -631,7 +746,7 @@ async def start_scrape(
 
     thread = threading.Thread(
         target=run_scrape_job,
-        args=(job_id, account_names, growth_keywords, days, headless_bool, gl, lang),
+        args=(job_id, account_names, growth_keyword_groups, days, headless_bool, gl, lang),
         daemon=True,
     )
     thread.start()
@@ -675,6 +790,15 @@ async def download_checkpoint(job_id: str):
         filename=f"scraper_checkpoint_{job_id[:8]}.xlsx",
         media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     )
+
+
+@app.get("/api/scrape/keyword-groups")
+async def get_keyword_groups():
+    """
+    Exposes the canonical keyword -> variants map so the frontend can show
+    users exactly what each keyword expands to (optional, for UI transparency).
+    """
+    return {"default_keywords": DEFAULT_GROWTH_KEYWORDS, "variants": KEYWORD_VARIANTS}
 
 
 # ============================================================

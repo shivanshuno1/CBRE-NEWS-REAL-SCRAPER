@@ -1,0 +1,309 @@
+{
+  "job_id": "8766caa3-cba6-452c-a1f3-95196c81db67",
+  "status": "completed",
+  "total_accounts": 2,
+  "completed_accounts": 2,
+  "results": [
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "expand",
+      "Search Query": "Meta (expand OR expands OR expanding OR expansion) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "open",
+      "Search Query": "Meta (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in Germany",
+      "Article Title": "Opening Bell: \u00d6l Brent, Dow Jones, Meta, Microsoft, Apple, Amazon, Starbucks, Qualcomm, Garmin, Vertiv",
+      "Article URL": "https://www.deraktionaer.de/videos/boersen-maerkte/opening-bell-oel-brent-dow-jones-meta-microsoft-apple-amazon-starbucks-qualcomm-garmin-vertiv-20405868.html",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "launch",
+      "Search Query": "Meta (launch OR launches OR launching) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "unveil",
+      "Search Query": "Meta (unveil OR unveils OR unveiling) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "partnership",
+      "Search Query": "Meta (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in Germany",
+      "Article Title": "Meta-Partner EssilorLuxottica st\u00e4rkt Eigenst\u00e4ndigkeit mit neuer Partnerschaft",
+      "Article URL": "https://www.heise.de/news/Meta-Partner-EssilorLuxottica-stellt-Weichen-fuer-eigene-AR-Brille-11336174.html",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "partnership",
+      "Search Query": "Meta (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in Germany",
+      "Article Title": "\"K\u00fcchenschlacht XXL\"-Star Meta Hiltebrand: Das ist ihr Partner aus der Schweizer Gastro-Szene",
+      "Article URL": "https://www.joyn.at/bts/themen/zdf/kuechenschlacht-xxl-star-meta-hiltebrand-dieser-koch-ist-ihr-partner-130205",
+      "Status": "OK",
+      "Extracted Name": "Tom Guldimann",
+      "Roles Found": "Partner"
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "partnership",
+      "Search Query": "Meta (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in Germany",
+      "Article Title": "\"K\u00fcchenschlacht XXL\"-Star Meta Hiltebrand: Das ist ihr Partner aus der Schweizer Gastro-Szene",
+      "Article URL": "https://www.joyn.at/bts/themen/zdf/kuechenschlacht-xxl-star-meta-hiltebrand-dieser-koch-ist-ihr-partner-130205",
+      "Status": "OK",
+      "Extracted Name": "Interview Einblicke",
+      "Roles Found": "Partner"
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "partnership",
+      "Search Query": "Meta (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in Germany",
+      "Article Title": "Meta-Partner EssilorLuxottica fertigt Smart Glasses k\u00fcnftig auch in Europa",
+      "Article URL": "https://www.heise.de/news/Meta-Partner-EssilorLuxottica-fertigt-Smart-Glasses-kuenftig-auch-in-Europa-11328020.html",
+      "Status": "OK",
+      "Extracted Name": "Brillen",
+      "Roles Found": "Partner"
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "acquisition",
+      "Search Query": "Meta (acquisition OR acquire OR acquires OR acquiring OR merger OR merge OR merges OR merging) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "investment",
+      "Search Query": "Meta (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in Germany",
+      "Article Title": "S&P 500-Titel Meta Platforms (ex Facebook)-Aktie: So viel h\u00e4tten Anleger mit einem Investment in Meta Platforms (ex Facebook) von vor 3 Jahren verdient",
+      "Article URL": "https://www.finanzen.net/nachricht/aktien/s-p-500-titel-meta-platforms-ex-facebook-aktie-so-viel-haetten-anleger-mit-einem-investment-in-meta-platforms-ex-facebook-von-vor-3-jahren-verdient-15730402",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "investment",
+      "Search Query": "Meta (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in Germany",
+      "Article Title": "Nach Kurssturz bei Meta-Aktie: Cathie Woods ARK Invest greift zu",
+      "Article URL": "https://www.finanzen.ch/nachrichten/aktien/nach-kurssturz-bei-meta-aktie-cathie-woods-ark-invest-greift-zu-1036391588",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "hiring",
+      "Search Query": "Meta (hiring OR hire OR hires OR recruitment OR recruits OR recruiting) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "growth",
+      "Search Query": "Meta (growth OR grow OR grows OR growing) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "ipo",
+      "Search Query": "Meta (ipo OR \"initial public offering\" OR \"public listing\" OR \"goes public\") in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "new product",
+      "Search Query": "Meta (\"new product\" OR \"new service\" OR innovation OR innovates OR \"product launch\") in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "digital transformation",
+      "Search Query": "Meta (\"digital transformation\" OR \"technology launch\" OR \"tech upgrade\" OR digitization) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "new facility",
+      "Search Query": "Meta (\"new facility\" OR \"new plant\" OR \"new store\" OR \"new branch\" OR \"new office\" OR \"new outlet\") in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "expand",
+      "Search Query": "Netflix (expand OR expands OR expanding OR expansion) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "open",
+      "Search Query": "Netflix (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in Germany",
+      "Article Title": "Opening Bell: Wall Street zum Wochenabschluss fest; Netflix, AMD, Oracle, Planet Labs, Allbirds, Iridium Communications im Fokus",
+      "Article URL": "https://www.deraktionaer.de/artikel/aktien/opening-bell-wall-street-zum-wochenabschluss-fest-netflix-amd-oracle-planet-labs-allbirds-iridium-communications-im-fokus-20399282.html",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "launch",
+      "Search Query": "Netflix (launch OR launches OR launching) in Germany",
+      "Article Title": "FIFA World Cup Launch Edition startet zum WM-Auftakt bei Netflix",
+      "Article URL": "https://www.gameswirtschaft.de/sport/fifa-world-cup-launch-edition-netflix-050626/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "unveil",
+      "Search Query": "Netflix (unveil OR unveils OR unveiling) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "partnership",
+      "Search Query": "Netflix (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "acquisition",
+      "Search Query": "Netflix (acquisition OR acquire OR acquires OR acquiring OR merger OR merge OR merges OR merging) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "investment",
+      "Search Query": "Netflix (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in Germany",
+      "Article Title": "NASDAQ Composite Index-Wert Netflix-Aktie: So viel h\u00e4tten Anleger an einem Netflix-Investment von vor einem Jahr verloren",
+      "Article URL": "https://www.finanzen.net/nachricht/aktien/nasdaq-composite-index-wert-netflix-aktie-so-viel-haetten-anleger-an-einem-netflix-investment-von-vor-einem-jahr-verloren-15824787",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "hiring",
+      "Search Query": "Netflix (hiring OR hire OR hires OR recruitment OR recruits OR recruiting) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "growth",
+      "Search Query": "Netflix (growth OR grow OR grows OR growing) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "ipo",
+      "Search Query": "Netflix (ipo OR \"initial public offering\" OR \"public listing\" OR \"goes public\") in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "new product",
+      "Search Query": "Netflix (\"new product\" OR \"new service\" OR innovation OR innovates OR \"product launch\") in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "digital transformation",
+      "Search Query": "Netflix (\"digital transformation\" OR \"technology launch\" OR \"tech upgrade\" OR digitization) in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "new facility",
+      "Search Query": "Netflix (\"new facility\" OR \"new plant\" OR \"new store\" OR \"new branch\" OR \"new office\" OR \"new outlet\") in Germany",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    }
+  ],
+  "location_suffix": "Germany"
+}

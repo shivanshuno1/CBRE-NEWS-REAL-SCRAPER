@@ -1,0 +1,69 @@
+{
+  "job_id": "a40d4455-3d4a-402e-a73d-de9365e50764",
+  "status": "completed",
+  "total_accounts": 2,
+  "completed_accounts": 2,
+  "results": [
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "expand",
+      "Search Query": "Meta (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Reliance, Meta Expand Partnership With AI-Focused Data Centre Project In India",
+      "Article URL": "https://www.news18.com/business/markets/reliance-meta-expand-partnership-with-ai-focused-data-centre-project-in-india-ws-l-10139892.html",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "expand",
+      "Search Query": "Meta (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Meta expands 13+ content settings for teen accounts across Instagram, Facebook, and Messenger",
+      "Article URL": "https://www.firstpost.com/tech/meta-expands-13-content-settings-for-teen-accounts-across-instagram-facebook-and-messenger-14018026.html",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Meta",
+      "Growth Keyword": "expand",
+      "Search Query": "Meta (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Flipkart Group partners with Meta to expand creator-led commerce in India",
+      "Article URL": "https://retail.economictimes.indiatimes.com/news/e-commerce/e-tailing/flipkart-group-partners-with-meta-to-expand-creator-led-commerce-in-india/131609646",
+      "Status": "OK",
+      "Extracted Name": "Arun Srinivas",
+      "Roles Found": "managing director"
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "expand",
+      "Search Query": "Netflix (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Netflix seeks to expand ads plan to 15 new countries in 2027, India not on list",
+      "Article URL": "https://www.telegraphindia.com/entertainment/netflix-plans-to-expand-ads-plan-to-15-new-countries-in-2027-india-not-on-list/cid/2160502#goog_rewarded",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "expand",
+      "Search Query": "Netflix (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "From expansion to optimisation: Is Netflix entering a recalibration phase?",
+      "Article URL": "https://www.exchange4media.com/digital-news/from-expansion-to-optimisation-is-netflix-entering-a-recalibration-phase-153955.html",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Netflix",
+      "Growth Keyword": "expand",
+      "Search Query": "Netflix (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Netflix expands accessibility features as global viewing habits shift",
+      "Article URL": "https://indianexpress.com/article/technology/tech-news-technology/netflix-expands-accessibility-features-as-global-viewing-habits-shift-10703007/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    }
+  ],
+  "location_suffix": "India"
+}

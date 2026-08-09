@@ -1,0 +1,589 @@
+{
+  "job_id": "307766d9-1b81-48fb-8de1-bd1108e63612",
+  "status": "completed",
+  "total_accounts": 2,
+  "completed_accounts": 2,
+  "results": [
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "expand",
+      "Search Query": "Bajaj Finserv (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Rajiv Bajaj exits Bajaj Finserv board amid expanding role at Auto biz",
+      "Article URL": "https://www.business-standard.com/companies/news/rajiv-bajaj-exits-bajaj-finserv-board-amid-expanding-role-at-auto-biz-126060900982_1.html",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "expand",
+      "Search Query": "Bajaj Finserv (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Bajaj Finserv seen gaining from life insurance margin expansion despite general insurance challenges",
+      "Article URL": "https://bfsi.economictimes.indiatimes.com/articles/bajaj-finserv-set-to-thrive-amid-life-insurance-margin-growth-despite-general-insurance-hurdles/130738577",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "open",
+      "Search Query": "Bajaj Finserv (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "BT Opening Bell |Sensex, Nifty open in green; Trent, Sun Pharma, Bajaj Finserv top gainers",
+      "Article URL": "https://www.businesstoday.in/markets/stocks/story/bt-opening-bell-sensex-nifty-open-in-green-trent-sun-pharma-bajaj-finserv-top-gainers-539608-2026-06-29",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "open",
+      "Search Query": "Bajaj Finserv (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "BT Opening Bell | Sensex jumps 195 pts, Nifty above 23,700; Bajaj Finserv, Maruti lead gainers",
+      "Article URL": "https://www.businesstoday.in/markets/stocks/story/bt-opening-bell-sensex-jumps-195-pts-nifty-above-23700-bajaj-finserv-maruti-lead-gainers-532779-2026-05-22",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "open",
+      "Search Query": "Bajaj Finserv (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "Opening Bell: Sensex jumps 489 points, Nifty above 23,750- Bajaj Finserv, Axis Bank, Tata Steel top gainers",
+      "Article URL": "https://www.zeebiz.com/market-news/news-opening-bell-sensex-jumps-489-points-nifty-above-23750-bajaj-finserv-axis-bank-tata-steel-top-gainers-393484",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "launch",
+      "Search Query": "Bajaj Finserv (launch OR launches OR launching) in India",
+      "Article Title": "Bajaj Finserv launches 'Finserv Intelligence' to back India's AI & deep-tech research and innovation; Partners IIT Bombay",
+      "Article URL": "https://www.prnewswire.com/in/news-releases/bajaj-finserv-launches-finserv-intelligence-to-back-indias-ai--deep-tech-research-and-innovation-partners-iit-bombay-302785457.html",
+      "Status": "OK",
+      "Extracted Name": "Sanjiv Bajaj",
+      "Roles Found": "Chairman"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "launch",
+      "Search Query": "Bajaj Finserv (launch OR launches OR launching) in India",
+      "Article Title": "Bajaj Finserv launches group-wide AI and deep-tech research initiative",
+      "Article URL": "https://www.business-standard.com/companies/news/bajaj-finserv-launches-ai-platform-plans-rs-2000-crore-startup-push-126052800781_1.html",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "launch",
+      "Search Query": "Bajaj Finserv (launch OR launches OR launching) in India",
+      "Article Title": "Bajaj Finserv To Invest \u20b9400-\u20b9450 Cr In AI Startups, Launch Dedicated Fund",
+      "Article URL": "https://inc42.com/buzz/bajaj-finserv-to-invest-%E2%82%B9400-%E2%82%B9450-cr-in-ai-startups-launch-dedicated-fund/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "unveil",
+      "Search Query": "Bajaj Finserv (unveil OR unveils OR unveiling) in India",
+      "Article Title": "Bajaj Finserv Dhuniverse, with Shankar-Ehsaan-Loy, to unveil \u2018Voice of Nation\u2019 on March 31",
+      "Article URL": "https://www.musiculture.in/bajaj-finserv-dhuniverse-with-shankar-ehsaan-loy-to-unveil-voice-of-nation-on-march-31/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "partnership",
+      "Search Query": "Bajaj Finserv (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "Bajaj Finserv launches 'Finserv Intelligence' to back India's AI & deep-tech research and innovation; Partners IIT Bombay",
+      "Article URL": "https://www.prnewswire.com/in/news-releases/bajaj-finserv-launches-finserv-intelligence-to-back-indias-ai--deep-tech-research-and-innovation-partners-iit-bombay-302785457.html",
+      "Status": "OK",
+      "Extracted Name": "Sanjiv Bajaj",
+      "Roles Found": "Chairman"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "partnership",
+      "Search Query": "Bajaj Finserv (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "Bajaj Finserv launches new venture to invest in next-gen startups, collaborates with IIT Bombay",
+      "Article URL": "https://www.moneycontrol.com/news/business/bajaj-finserv-launches-new-venture-to-invest-in-next-gen-startups-collaborates-with-iit-bombay-13934861.html",
+      "Status": "OK",
+      "Extracted Name": "Rajeev Jain",
+      "Roles Found": "Chairman"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "partnership",
+      "Search Query": "Bajaj Finserv (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "Bajaj Finserv launches new venture to invest in next-gen startups, collaborates with IIT Bombay",
+      "Article URL": "https://www.moneycontrol.com/news/business/bajaj-finserv-launches-new-venture-to-invest-in-next-gen-startups-collaborates-with-iit-bombay-13934861.html",
+      "Status": "OK",
+      "Extracted Name": "Bajaj Finance",
+      "Roles Found": "MD"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "partnership",
+      "Search Query": "Bajaj Finserv (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "Bajaj Finserv partners IIT Bombay on high-tech scalable solutions",
+      "Article URL": "https://ibsintelligence.com/ibsi-news/bajaj-finserv-partners-iit-bombay-on-high-tech-scalable-solutions/",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "acquisition",
+      "Search Query": "Bajaj Finserv (acquisition OR acquire OR acquires OR acquiring OR merger OR merge OR merges OR merging) in India",
+      "Article Title": "Bajaj Holdings trades in green on acquiring equity shares in Bajaj Finserv",
+      "Article URL": "https://investmentguruindia.com/newsdetail/bajaj-holdings-trades-in-green-on-acquiring-equity-shares-in-bajaj-finserv867008",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "acquisition",
+      "Search Query": "Bajaj Finserv (acquisition OR acquire OR acquires OR acquiring OR merger OR merge OR merges OR merging) in India",
+      "Article Title": "Bajaj Holdings & Investment acquires 20.90 lakh equity shares in Bajaj Finserv",
+      "Article URL": "https://www.business-standard.com/markets/capital-market-news/bajaj-holdings-investment-acquires-20-90-lakh-equity-shares-in-bajaj-finserv-126042800479_1.html",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "investment",
+      "Search Query": "Bajaj Finserv (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in India",
+      "Article Title": "Bajaj Finserv Ventures invests in Kapture CX ahead of AI fund launch",
+      "Article URL": "https://www.vccircle.com/bajajfinserv-ventures-leads-kapture-cx-s-10-mn-round-ahead-of-ai-fund-launch",
+      "Status": "OK",
+      "Extracted Name": "Sheshgiri Kamath",
+      "Roles Found": "co-founder"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "investment",
+      "Search Query": "Bajaj Finserv (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in India",
+      "Article Title": "Bajaj Finserv To Invest \u20b9400-\u20b9450 Cr In AI Startups, Launch Dedicated Fund",
+      "Article URL": "https://inc42.com/buzz/bajaj-finserv-to-invest-%E2%82%B9400-%E2%82%B9450-cr-in-ai-startups-launch-dedicated-fund/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "investment",
+      "Search Query": "Bajaj Finserv (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in India",
+      "Article Title": "Bajaj Finserv commits \u20b91,500 cr-2,000 cr over 5 years to AI innovation startups to bridge private R&D funding gap",
+      "Article URL": "https://www.livemint.com/companies/news/bajaj-finserv-ai-innovation-startups-private-r-d-funding-cybersecurity-quantum-technology-fintech-consumer-tech-11779955576265.html",
+      "Status": "OK",
+      "Extracted Name": "Sanjiv Bajaj",
+      "Roles Found": "chairman"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "hiring",
+      "Search Query": "Bajaj Finserv (hiring OR hire OR hires OR recruitment OR recruits OR recruiting) in India",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "growth",
+      "Search Query": "Bajaj Finserv (growth OR grow OR grows OR growing) in India",
+      "Article Title": "India\u2019s growth in the long run looks strong despite rising global uncertainties: Bajaj Finserv AMC",
+      "Article URL": "https://cafemutual.com/news/industry/38001-indias-growth-in-the-long-run-looks-strong-despite-rising-global-uncertainties-bajaj-finserv-amc",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "growth",
+      "Search Query": "Bajaj Finserv (growth OR grow OR grows OR growing) in India",
+      "Article Title": "Bajaj Finserv announces dividend, reports strong FY26 growth",
+      "Article URL": "https://www.indiatoday.in/business/story/bajaj-finserv-announces-dividend-reports-strong-fy26-growth-2903742-2026-04-30",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "growth",
+      "Search Query": "Bajaj Finserv (growth OR grow OR grows OR growing) in India",
+      "Article Title": "Rajiv Bajaj to exit Bajaj Finserv board amid growing responsibilities at Bajaj Auto",
+      "Article URL": "https://www.fortuneindia.com/auto/rajiv-bajaj-to-exit-bajaj-finserv-board-amid-growing-responsibilities-at-bajaj-auto/142192",
+      "Status": "OK",
+      "Extracted Name": "Rajiv Bajaj",
+      "Roles Found": "managing director"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "growth",
+      "Search Query": "Bajaj Finserv (growth OR grow OR grows OR growing) in India",
+      "Article Title": "Rajiv Bajaj to exit Bajaj Finserv board amid growing responsibilities at Bajaj Auto",
+      "Article URL": "https://www.fortuneindia.com/auto/rajiv-bajaj-to-exit-bajaj-finserv-board-amid-growing-responsibilities-at-bajaj-auto/142192",
+      "Status": "OK",
+      "Extracted Name": "Bajaj",
+      "Roles Found": "executive director"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "growth",
+      "Search Query": "Bajaj Finserv (growth OR grow OR grows OR growing) in India",
+      "Article Title": "Rajiv Bajaj to exit Bajaj Finserv board amid growing responsibilities at Bajaj Auto",
+      "Article URL": "https://www.fortuneindia.com/auto/rajiv-bajaj-to-exit-bajaj-finserv-board-amid-growing-responsibilities-at-bajaj-auto/142192",
+      "Status": "OK",
+      "Extracted Name": "Sanjiv Bajaj",
+      "Roles Found": "chairman"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "ipo",
+      "Search Query": "Bajaj Finserv (ipo OR \"initial public offering\" OR \"public listing\" OR \"goes public\") in India",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "new product",
+      "Search Query": "Bajaj Finserv (\"new product\" OR \"new service\" OR innovation OR innovates OR \"product launch\") in India",
+      "Article Title": "Bajaj Finserv launches 'Finserv Intelligence' to back India's AI & deep-tech research and innovation; Partners IIT Bombay",
+      "Article URL": "https://www.prnewswire.com/in/news-releases/bajaj-finserv-launches-finserv-intelligence-to-back-indias-ai--deep-tech-research-and-innovation-partners-iit-bombay-302785457.html",
+      "Status": "OK",
+      "Extracted Name": "Sanjiv Bajaj",
+      "Roles Found": "Chairman"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "new product",
+      "Search Query": "Bajaj Finserv (\"new product\" OR \"new service\" OR innovation OR innovates OR \"product launch\") in India",
+      "Article Title": "Bajaj Finserv commits \u20b91,500 cr-2,000 cr over 5 years to AI innovation startups to bridge private R&D funding gap",
+      "Article URL": "https://www.livemint.com/companies/news/bajaj-finserv-ai-innovation-startups-private-r-d-funding-cybersecurity-quantum-technology-fintech-consumer-tech-11779955576265.html",
+      "Status": "OK",
+      "Extracted Name": "Sanjiv Bajaj",
+      "Roles Found": "chairman"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "new product",
+      "Search Query": "Bajaj Finserv (\"new product\" OR \"new service\" OR innovation OR innovates OR \"product launch\") in India",
+      "Article Title": "Bajaj Finserv to invest \u20b91,500-2,000 crore in AI innovation startups over 5 yrs",
+      "Article URL": "https://www.thehindubusinessline.com/money-and-banking/bajaj-finserv-to-invest-1500-2000-crore-in-ai-innovation-startups-over-5-yrs/article71032648.ece",
+      "Status": "OK",
+      "Extracted Name": "Sanjiv Bajaj",
+      "Roles Found": "Chairman"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "new product",
+      "Search Query": "Bajaj Finserv (\"new product\" OR \"new service\" OR innovation OR innovates OR \"product launch\") in India",
+      "Article Title": "Bajaj Finserv to invest \u20b91,500-2,000 crore in AI innovation startups over 5 yrs",
+      "Article URL": "https://www.thehindubusinessline.com/money-and-banking/bajaj-finserv-to-invest-1500-2000-crore-in-ai-innovation-startups-over-5-yrs/article71032648.ece",
+      "Status": "OK",
+      "Extracted Name": "Shireesh Kedare",
+      "Roles Found": "Director"
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "digital transformation",
+      "Search Query": "Bajaj Finserv (\"digital transformation\" OR \"technology launch\" OR \"tech upgrade\" OR digitization) in India",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "new facility",
+      "Search Query": "Bajaj Finserv (\"new facility\" OR \"new plant\" OR \"new store\" OR \"new branch\" OR \"new office\" OR \"new outlet\") in India",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "expand",
+      "Search Query": "Volvo (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Volvo expands premium coach range in India with new 9600 Seater-Sleeper",
+      "Article URL": "https://www.sustainable-bus.com/events-public-transport/volvo-9600-prawaas-5-0/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "expand",
+      "Search Query": "Volvo (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Volvo Group Q2 2026 slides: margins expand amid tariff headwinds By Investing.com",
+      "Article URL": "https://ng.investing.com/news/company-news/volvo-group-q2-2026-slides-margins-expand-amid-tariff-headwinds-93CH-2604460",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "expand",
+      "Search Query": "Volvo (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Coca-Cola Canada expands electric fleet with new Volvo VNR trucks in B.C. and Quebec",
+      "Article URL": "https://driveteslacanada.ca/news/coca-cola-canada-electric-truck-fleet-volvo-vnr/",
+      "Status": "OK",
+      "Extracted Name": "Matthew Blackman",
+      "Roles Found": "managing director"
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "open",
+      "Search Query": "Volvo (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "\u201cBig Milestone\u201d: Volvo Group India\u2019s Kamal Bali Says PM Modi\u2019s Sweden Visit Opens New Opportunities",
+      "Article URL": "https://www.businesstoday.in/bt-tv/whats-hot/video/big-milestone-volvo-group-indias-kamal-bali-says-pm-modis-sweden-visit-opens-new-opportunities-531975-2026-05-18",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "open",
+      "Search Query": "Volvo (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "Volvo EX30 Open Bonnet Engine Shot Image \u2013 EX30 Photos in India",
+      "Article URL": "https://www.autocarindia.com/cars/volvo/ex30/images/open-bonnet-engine-shot",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "open",
+      "Search Query": "Volvo (open OR opens OR opening OR inaugurate OR inaugurates OR inauguration) in India",
+      "Article Title": "Volvo XC60 Open Bonnet Engine Shot Image \u2013 XC60 Photos in India",
+      "Article URL": "https://www.autocarindia.com/cars/volvo/xc60/images/open-bonnet-engine-shot",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "launch",
+      "Search Query": "Volvo (launch OR launches OR launching) in India",
+      "Article Title": "Volvo EX40 Discontinued in India, 2 New Cars to Launch in 2026",
+      "Article URL": "https://www.carwale.com/news/volvo-ex40-discontinued-in-india-2-new-cars-to-launch-in-2026/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "launch",
+      "Search Query": "Volvo (launch OR launches OR launching) in India",
+      "Article Title": "Volvo EX90 Launch Confirmed In India: What's New With The Safest Car Brand Bringing To The Electric?",
+      "Article URL": "https://www.cardekho.com/india-car-news/volvo-ex90-launch-confirmed-in-india-whats-new-with-the-safest-car-brand-bringing-to-the-electric-36341.htm",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "launch",
+      "Search Query": "Volvo (launch OR launches OR launching) in India",
+      "Article Title": "Volvo India to launch two new flagship EVs in 2026",
+      "Article URL": "https://www.team-bhp.com/news/volvo-india-launch-two-new-flagship-evs-2026",
+      "Status": "OK",
+      "Extracted Name": "Jyoti Malhotra",
+      "Roles Found": "MD"
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "unveil",
+      "Search Query": "Volvo (unveil OR unveils OR unveiling) in India",
+      "Article Title": "Volvo unveils India\u2019s first factory-built 9600 seater-sleeper coach",
+      "Article URL": "https://www.msn.com/en-in/news/insight/volvo-unveils-india-s-first-factory-built-9600-seater-sleeper-coach/gm-GMFD6ECF16?gemSnapshotKey=GMFD6ECF16-snapshot-1",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "unveil",
+      "Search Query": "Volvo (unveil OR unveils OR unveiling) in India",
+      "Article Title": "Volvo Buses India unveils 9600 Seater-Sleeper coach for premium intercity travel",
+      "Article URL": "https://auto.economictimes.indiatimes.com/news/commercial-vehicle/volvo-buses-india-unveils-9600-seater-sleeper-coach-for-premium-intercity-travel/132286504",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "unveil",
+      "Search Query": "Volvo (unveil OR unveils OR unveiling) in India",
+      "Article Title": "Volvo Buses India Unveils India\u2019s First 9600 Seater-Sleeper Coach",
+      "Article URL": "https://www.thrustzone.com/volvo-buses-india-unveils-indias-first-9600-seater-sleeper-coach/",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "partnership",
+      "Search Query": "Volvo (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "Volvo Financial Services and Eicher Motors Limited announce joint venture for financial services in India",
+      "Article URL": "https://www.volvogroup.com/en/news-and-media/news/2026/may/volvo-financial-services-and-eicher-motors-limited-announce-joint-venture-for-financial-services-in-india.html",
+      "Status": "OK",
+      "Extracted Name": "Marcio Pedroso",
+      "Roles Found": "President"
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "partnership",
+      "Search Query": "Volvo (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "Volvo Financial Services and Eicher Motors Limited announce joint venture for financial services in India",
+      "Article URL": "https://www.volvogroup.com/en/news-and-media/news/2026/may/volvo-financial-services-and-eicher-motors-limited-announce-joint-venture-for-financial-services-in-india.html",
+      "Status": "OK",
+      "Extracted Name": "Christopher Heffner",
+      "Roles Found": "Director"
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "partnership",
+      "Search Query": "Volvo (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "Eicher Motors and Volvo Group Establish Vehicle Financing Joint Venture in India",
+      "Article URL": "https://www.autocarpro.in/news/eicher-motors-and-volvo-group-establish-vehicle-financing-joint-venture-in-india-132728",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "partnership",
+      "Search Query": "Volvo (partnership OR partner OR partners OR partnering OR collaborate OR collaborates OR collaboration OR \"joint venture\") in India",
+      "Article Title": "JSA, SAM Advise Volvo Group On Joint Venture With Eicher Motors Limited",
+      "Article URL": "https://lawbeat.in/deal-beat/jsa-sam-advise-volvo-group-on-joint-venture-with-eicher-motors-limited-1598062",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "acquisition",
+      "Search Query": "Volvo (acquisition OR acquire OR acquires OR acquiring OR merger OR merge OR merges OR merging) in India",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "investment",
+      "Search Query": "Volvo (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in India",
+      "Article Title": "Volvo to invest \u20b91,500 crore in Karnataka, create 1,700 jobs",
+      "Article URL": "https://www.thehindu.com/news/national/karnataka/shlcc-clears-17-investment-proposals-worth-1843044-cr/article70858626.ece",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "investment",
+      "Search Query": "Volvo (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in India",
+      "Article Title": "Eicher Motors to invest \u20b9750 crore in proposed JV with Volvo Group for vehicle financing business",
+      "Article URL": "https://auto.economictimes.indiatimes.com/news/commercial-vehicle/eicher-motors-to-invest-750-crore-in-proposed-jv-with-volvo-group-for-vehicle-financing-business/131248174",
+      "Status": "OK",
+      "Extracted Name": "Eicher",
+      "Roles Found": "Chairman"
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "investment",
+      "Search Query": "Volvo (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in India",
+      "Article Title": "Eicher Motors to invest \u20b9750 crore in proposed JV with Volvo Group for vehicle financing business",
+      "Article URL": "https://auto.economictimes.indiatimes.com/news/commercial-vehicle/eicher-motors-to-invest-750-crore-in-proposed-jv-with-volvo-group-for-vehicle-financing-business/131248174",
+      "Status": "OK",
+      "Extracted Name": "Siddhartha Lal",
+      "Roles Found": "Chairman"
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "investment",
+      "Search Query": "Volvo (investment OR invest OR invests OR investing OR funding OR funds OR \"capital raise\" OR \"raises funding\") in India",
+      "Article Title": "Eicher Motors, Volvo Group to form 50:50 financing JV in India; \u20b9750 crore investment approved for captive finance push",
+      "Article URL": "https://www.fortuneindia.com/personal-finance/banking/eicher-motors-volvo-group-to-form-5050-financing-jv-in-india-750-crore-investment-approved-for-captive-finance-push/139075",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "hiring",
+      "Search Query": "Volvo (hiring OR hire OR hires OR recruitment OR recruits OR recruiting) in India",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "growth",
+      "Search Query": "Volvo (growth OR grow OR grows OR growing) in India",
+      "Article Title": "VECV Reports 7.8% growth in May 2026 sales, Volvo up by 32.2%",
+      "Article URL": "https://auto.hindustantimes.com/auto/news/vecv-reports-7-8-growth-in-may-2026-sales-volvo-up-by-322-41780379105834.html",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "ipo",
+      "Search Query": "Volvo (ipo OR \"initial public offering\" OR \"public listing\" OR \"goes public\") in India",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "new product",
+      "Search Query": "Volvo (\"new product\" OR \"new service\" OR innovation OR innovates OR \"product launch\") in India",
+      "Article Title": "Volvo Trucks announces global product launch - a range of new powertrains to reduce CO2 emissions and accelerate decarbonization",
+      "Article URL": "https://www.prnewswire.com/news-releases/volvo-trucks-announces-global-product-launch--a-range-of-new-powertrains-to-reduce-co2-emissions-and-accelerate-decarbonization-302767105.html",
+      "Status": "OK",
+      "Extracted Name": "Roger Alm",
+      "Roles Found": "President"
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "digital transformation",
+      "Search Query": "Volvo (\"digital transformation\" OR \"technology launch\" OR \"tech upgrade\" OR digitization) in India",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "new facility",
+      "Search Query": "Volvo (\"new facility\" OR \"new plant\" OR \"new store\" OR \"new branch\" OR \"new office\" OR \"new outlet\") in India",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "NO_RELEVANT_NEWS",
+      "Extracted Name": "",
+      "Roles Found": ""
+    }
+  ],
+  "location_suffix": "India"
+}

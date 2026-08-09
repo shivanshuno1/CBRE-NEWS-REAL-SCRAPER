@@ -1,0 +1,39 @@
+{
+  "job_id": "0b4e0984-08d0-492f-af96-912da6a2b069",
+  "status": "completed",
+  "total_accounts": 2,
+  "completed_accounts": 2,
+  "results": [
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "expand",
+      "Search Query": "Bajaj Finserv (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Rajiv Bajaj exits Bajaj Finserv board amid expanding role at Auto biz",
+      "Article URL": "https://www.business-standard.com/companies/news/rajiv-bajaj-exits-bajaj-finserv-board-amid-expanding-role-at-auto-biz-126060900982_1.html",
+      "Status": "FETCH_FAILED",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Bajaj Finserv",
+      "Growth Keyword": "expand",
+      "Search Query": "Bajaj Finserv (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "Bajaj Finserv seen gaining from life insurance margin expansion despite general insurance challenges",
+      "Article URL": "https://bfsi.economictimes.indiatimes.com/articles/bajaj-finserv-set-to-thrive-amid-life-insurance-margin-growth-despite-general-insurance-hurdles/130738577",
+      "Status": "NO_NAME_FOUND",
+      "Extracted Name": "",
+      "Roles Found": ""
+    },
+    {
+      "Account Name": "Volvo",
+      "Growth Keyword": "expand",
+      "Search Query": "Volvo (expand OR expands OR expanding OR expansion) in India",
+      "Article Title": "",
+      "Article URL": "",
+      "Status": "SEARCH_FAILED: Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.182)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff7ebec0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff7ebec0d80+15600]\n\tchromedriver!(No symbol) [0x7ff7eba1594d]\n\tchromedriver!(No symbol) [0x7ff7eb9ec792]\n\tchromedriver!(No symbol) [0x7ff7ebaa0536]\n\tchromedriver!(No symbol) [0x7ff7ebabd902]\n\tchromedriver!(No symbol) [0x7ff7eba62e6c]\n\tchromedriver!(No symbol) [0x7ff7eba63d93]\n\tchromedriver!GetHandleVerifier [0x7ff7ec4a6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff7ec4a0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff7ec4c5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff7ebeddace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff7ebee661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff7ebecab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff7ebecad04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff7ebead9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7fffd33be957+17]\n\tntdll!RtlUserThreadStart [0x7fffd3d2ad6c+2c]\n",
+      "Extracted Name": "",
+      "Roles Found": ""
+    }
+  ],
+  "location_suffix": "India"
+}
