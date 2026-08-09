@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import * as XLSX from 'xlsx';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = 'https://cbre-news-real-scraper.onrender.com';
 
 export default function App() {
   // Config state
